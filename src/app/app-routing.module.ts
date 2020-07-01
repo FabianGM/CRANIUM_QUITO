@@ -31,6 +31,14 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'temas',
+    loadChildren: () => import('./paginas/temas/temas.module').then( m => m.TemasPageModule)
+  },
+  {
+    path: 'estilos',
+    loadChildren: () => import('./paginas/estilos/estilos.module').then( m => m.EstilosPageModule)
+  },
 ];
 
 @NgModule({

@@ -16,13 +16,13 @@ export class ConfiguracionPage implements OnInit {
   {
     icono: 'image-outline',
     name: 'Temas',
-    redirecTo: '/configuracion'
+    redirecTo: '/temas'
   }
   ,
   {
     icono: 'color-palette-outline',
     name: 'Estilos',
-    redirecTo: '/configuracion'
+    redirecTo: '/estilos'
   }
 ];
 

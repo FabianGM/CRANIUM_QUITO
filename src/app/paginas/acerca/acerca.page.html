@@ -1,14 +1,16 @@
 <app-header titulo="Acerca De"></app-header>
 
-<ion-content>
+<ion-content color="fondo">
     <h5>Desarolladores:</h5>
-    <ion-list>
-        <ion-item *ngFor="let cp of componentes">
-            <ion-avatar slot="start">
-                <img src="{{cp.src}}">
-            </ion-avatar>
-            <ion-label>{{cp.name}}</ion-label>
-        </ion-item>
-    </ion-list>
-
+    <ion-item *ngFor="let cp of componentes" class="ion-no-border" color="fondo">
+        <ion-avatar slot="start">
+            <img src="{{cp.src}}">
+        </ion-avatar>
+        <ion-label>{{cp.name}}</ion-label>
+    </ion-item>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar color="encabezado">
+    </ion-toolbar>
+</ion-footer>

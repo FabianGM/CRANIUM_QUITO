@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemporizadorPage implements OnInit {
 
+  porcentaje = 0.05;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  cambioRango(event){
+    console.log(event)
   }
 
 }
