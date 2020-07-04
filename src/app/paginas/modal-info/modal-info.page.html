@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modal-info</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  
+ 
+
+    <ion-list>
+
+     
+        <ion-list-header>
+            <ion-label>Formulario Registro:</ion-label>
+        </ion-list-header>
+
+        <ion-item>
+            <ion-label position="floating">descripcion</ion-label>
+            <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Palabra Clave</ion-label>
+            <ion-input type="text" name="palabraclave" [(ngModel)]="data.palabraclave" ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Respuesta</ion-label>
+          <ion-input type="text" name="respuesta"  [(ngModel)]="data.respuesta" ></ion-input>
+      </ion-item>
+
+        
+      <ion-button expand="full" (click)="salirModalAr()" >
+        Salir del modal con argumeto
+        </ion-button>
+  
+        
+  
+  
+    
+    </ion-list>
+
+
+  <h1>{{card}}</h1>
+  <ion-button expand="full" (click)="salirModal()">
+    Salir del modal
+    </ion-button>
+
+ 
+
+</ion-content>
+
+

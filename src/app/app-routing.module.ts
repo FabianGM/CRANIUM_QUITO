@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'equipos',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -31,6 +31,13 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+  {
+    path: 'administrador',
+    loadChildren: () => import('./paginas/administrador/administrador.module').then( m => m.AdministradorPageModule)
+  },
+
+  
+
 ];
 
 @NgModule({
