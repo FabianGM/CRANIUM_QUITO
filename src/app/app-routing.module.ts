@@ -32,12 +32,22 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
+<<<<<<< HEAD
     path: 'administrador',
     loadChildren: () => import('./paginas/administrador/administrador.module').then( m => m.AdministradorPageModule)
   },
 
   
 
+=======
+    path: 'temas',
+    loadChildren: () => import('./paginas/temas/temas.module').then( m => m.TemasPageModule)
+  },
+  {
+    path: 'estilos',
+    loadChildren: () => import('./paginas/estilos/estilos.module').then( m => m.EstilosPageModule)
+  },
+>>>>>>> 5b83adf8c03720979ba7ed866def5aeafda6a2ae
 ];
 
 @NgModule({

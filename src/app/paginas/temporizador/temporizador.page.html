@@ -1,10 +1,17 @@
 <app-header titulo="Temporizador"></app-header>
 
-<ion-content>
-
-    <ion-item>
-        <ion-label>HH:mm</ion-label>
-        <ion-datetime displayFormat="HH:mm"></ion-datetime>
+<ion-content color="fondo">
+    <ion-img src="./assets/icon/t1.jpg"></ion-img>
+    <ion-item color="fondo">
+        <ion-range (ionChange)="cambioRango($event)" min="1" max="100" pin="true" color="dark">
+            <ion-label slot="start">0</ion-label>
+            <ion-label slot="end">100</ion-label>
+        </ion-range>
     </ion-item>
 
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar color="encabezado">
+    </ion-toolbar>
+</ion-footer>

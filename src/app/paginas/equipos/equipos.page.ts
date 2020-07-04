@@ -26,6 +26,11 @@ export class EquiposPage implements OnInit {
     redirecTo: '/acerca'
   }
 ];
+
+informacion={
+  equipo1: '',
+  equipo2:''
+}
   constructor(private menu: MenuController) { }
 
   openFirst() {
@@ -43,6 +48,10 @@ export class EquiposPage implements OnInit {
   }
   
   ngOnInit() {
+  }
+
+  registroDatos(){
+    console.log(this.informacion)
   }
 
 }

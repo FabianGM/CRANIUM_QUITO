@@ -1,7 +1,11 @@
 
 <ion-header>
+<<<<<<< HEAD
     <app-header titulo="EQUIPO"></app-header>
     <ion-toolbar color="primary">
+=======
+    <ion-toolbar color="encabezado">
+>>>>>>> 5b83adf8c03720979ba7ed866def5aeafda6a2ae
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
@@ -9,29 +13,41 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content color="">
+<ion-content color="fondo">
     <ion-menu side="start" menuId="first" contentId="main">
         <ion-header>
-            <ion-toolbar color="primary">
+            <ion-toolbar color="encabezado">
                 <ion-title>Menu</ion-title>
             </ion-toolbar>
         </ion-header>
-        <ion-content>
-            <ion-list>
-                <ion-item *ngFor="let cp of componentes" [routerLink]="cp.redirecTo" detail>
-                    <ion-icon slot="start" [name]="cp.icono"></ion-icon>
-                    <ion-label>{{cp.name}}</ion-label>
-                </ion-item>
-            </ion-list>
+        <ion-content color="fondo">
+            <ion-item *ngFor="let cp of componentes" [routerLink]="cp.redirecTo" detail color="fondo">
+                <ion-icon slot="start" [name]="cp.icono"></ion-icon>
+                <ion-label>{{cp.name}}</ion-label>
+            </ion-item>
         </ion-content>
     </ion-menu>
 
     <ion-router-outlet id="main"></ion-router-outlet>
 
+    <form (ngSubmit)="registroDatos()">
+        <ion-img src="./assets/icon/equipos2.png"></ion-img>
+        <ion-item color="fondo">
+            <ion-label position='floating'>Ingrese el nombre del Equipo 1:</ion-label>
+            <ion-input type='text' [(ngModel)]="informacion.equipo1" name="nombres"></ion-input>
+        </ion-item>
+        <ion-item color="fondo">
+            <ion-label position='floating'>Ingrese el nombre del Equipo 2:</ion-label>
+            <ion-input type='text' [(ngModel)]="informacion.equipo2" name="cedula"></ion-input>
+        </ion-item>
+        <ion-item color="fondo">
+            <ion-button color="primary" expand="full" type="submit">Aceptar</ion-button>
+        </ion-item>
+    </form>
+
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar color="primary">
-
+    <ion-toolbar color="encabezado">
     </ion-toolbar>
 </ion-footer>
