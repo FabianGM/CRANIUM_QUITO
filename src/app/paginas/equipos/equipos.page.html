@@ -1,35 +1,18 @@
-<ion-header>
-    <ion-toolbar color="encabezado">
-        <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>equipos</ion-title>
-    </ion-toolbar>
-</ion-header>
+<app-header titulo="Equipos"></app-header>
 
 <ion-content color="fondo">
-    <ion-menu side="start" menuId="first" contentId="main">
-        <ion-header>
-            <ion-toolbar color="encabezado">
-                <ion-title>Menu</ion-title>
-            </ion-toolbar>
-        </ion-header>
-        <ion-content color="fondo">
-            <ion-item *ngFor="let cp of componentes" [routerLink]="cp.redirecTo" detail color="fondo">
-                <ion-icon slot="start" [name]="cp.icono"></ion-icon>
-                <ion-label>{{cp.name}}</ion-label>
-            </ion-item>
-        </ion-content>
-    </ion-menu>
-
-    <ion-router-outlet id="main"></ion-router-outlet>
 
     <form (ngSubmit)="registroDatos()">
-        <ion-img src="./assets/icon/equipos2.png"></ion-img>
-        <ion-item color="fondo">
-            <ion-label position='floating'>Ingrese el nombre del Equipo 1:</ion-label>
-            <ion-input type='text' [(ngModel)]="informacion.equipo1" name="nombres"></ion-input>
-        </ion-item>
+        <div style="margin: 0 auto;">
+            <ion-tab-button>
+                <ion-img src="./assets/icon/equipos2.png" style="width: 70%;"></ion-img>
+            </ion-tab-button>
+            <ion-item color="fondo">
+                <ion-label position='floating'>Ingrese el nombre del Equipo 1:</ion-label>
+                <ion-input type='text' [(ngModel)]="informacion.equipo1" name="nombres"></ion-input>
+            </ion-item>
+        </div>
+
         <ion-item color="fondo">
             <ion-label position='floating'>Ingrese el nombre del Equipo 2:</ion-label>
             <ion-input type='text' [(ngModel)]="informacion.equipo2" name="cedula"></ion-input>
