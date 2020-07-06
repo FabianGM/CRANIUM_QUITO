@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar color="encabezado">
+        <ion-title class="ion-text-center"> CRANIUM </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content color="fondo">
+    <ion-buttons>
+        <ion-card *ngIf="mostrar_dado" (click)="onClick()" color="fondo" class="card">
+
+            <ion-card-header>
+                <h3 *ngIf="mostrar_texto">
+                    PRESIONAME!!
+                </h3>
+            </ion-card-header>
+            <ion-card-content>
+                <ion-img [src]="src"></ion-img>
+            </ion-card-content>
+        </ion-card>
+    </ion-buttons>
+</ion-content>
+
+
+<ion-footer>
+    <ion-toolbar color="encabezado">
+        <ion-buttons (click)="presentAlert()">
+            <ion-button *ngFor="let item of [1,1,1,1]"></ion-button>
+            <ion-button>
+                <ion-icon name="trophy-outline" slot="start"></ion-icon>
+                <h4>
+                    GANADOR !!!
+                </h4>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-footer>

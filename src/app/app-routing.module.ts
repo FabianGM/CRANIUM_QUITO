@@ -69,6 +69,10 @@ const routes: Routes = [
     path: 'yes-or-no',
     loadChildren: () => import('./paginas/yes-or-no/yes-or-no.module').then( m => m.YesOrNoPageModule)
   },
+  {
+    path: 'juego-principal',
+    loadChildren: () => import('./paginas/juego-principal/juego-principal.module').then( m => m.JuegoPrincipalPageModule)
+  },
 ];
 
 @NgModule({
