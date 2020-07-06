@@ -58,18 +58,6 @@ const routes: Routes = [
     loadChildren: () => import('./paginas/view-purple/view-purple.module').then( m => m.ViewPurplePageModule)
   },
   {
-    path: 'anagram',
-    loadChildren: () => import('./paginas/anagram/anagram.module').then( m => m.AnagramPageModule)
-  },
-  {
-    path: 'option-ml',
-    loadChildren: () => import('./paginas/option-ml/option-ml.module').then( m => m.OptionMlPageModule)
-  },
-  {
-    path: 'yes-or-no',
-    loadChildren: () => import('./paginas/yes-or-no/yes-or-no.module').then( m => m.YesOrNoPageModule)
-  },
-  {
     path: 'juego-principal',
     loadChildren: () => import('./paginas/juego-principal/juego-principal.module').then( m => m.JuegoPrincipalPageModule)
   },

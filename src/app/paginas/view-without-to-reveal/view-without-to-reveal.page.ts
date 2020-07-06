@@ -15,19 +15,28 @@ export class ViewWithoutToRevealPage implements OnInit {
 
   async presentAlert() {
     const alert = await this.alertCtrl.create({
-      header: ``,
+      header: `Respuesta: Panecillo`,
       backdropDismiss: false,
       subHeader: ``,
-      message: `<h4>52 segundos restantes</h4><ion-img src="./assets/icon/relog_de_arena.gif"></ion-img>`,
+      message: `<h4>52 segundos restantes</h4><ion-img src="./assets/icon/relog_de_arena.gif"></ion-img> `
+ ,
       buttons: [
         {
-          text: "Bien",
-          role: "cancel",
+          text: "Enviar",
+          role: "enviar",
           cssClass: "secondary",
           handler: (blah) => {
-            console.log("Cancelar");
+            console.log("Enviar");
           },
+          
         },
+        {
+          text: 'Cancelar',
+          role: 'cancelar',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        }
       ],
     });
 
@@ -35,6 +44,6 @@ export class ViewWithoutToRevealPage implements OnInit {
   }
 
 
- 
+  
 
 }

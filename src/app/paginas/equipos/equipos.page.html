@@ -1,7 +1,6 @@
-
 <ion-header>
     <app-header titulo="EQUIPO"></app-header>
-    <ion-toolbar color="primary">
+    <ion-toolbar color="encabezado">
         <ion-buttons slot="start">
             <ion-menu-button></ion-menu-button>
         </ion-buttons>
@@ -27,7 +26,10 @@
     <ion-router-outlet id="main"></ion-router-outlet>
 
     <form (ngSubmit)="registroDatos()">
+
         <ion-img src="./assets/icon/equipos2.png"></ion-img>
+
+
         <ion-item color="fondo">
             <ion-label position='floating'>Ingrese el nombre del Equipo 1:</ion-label>
             <ion-input type='text' [(ngModel)]="informacion.equipo1" name="nombres"></ion-input>

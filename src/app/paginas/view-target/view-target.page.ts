@@ -21,9 +21,15 @@ export class ViewTargetPage implements OnInit {
       message: `<h4>52 segundos restantes</h4><ion-img src="./assets/icon/relog_de_arena.gif"></ion-img>`,
       buttons: [
         {
+<<<<<<< Updated upstream
           text: 'Bien',
           role: 'cancel',
           cssClass: 'secondary',
+=======
+          text: "Cancelar",
+          role: "cancel",
+          cssClass: "secondary",
+>>>>>>> Stashed changes
           handler: (blah) => {
             console.log('Cancelar');
           },
@@ -40,12 +46,18 @@ export class ViewTargetPage implements OnInit {
       header: ``,
       backdropDismiss: false,
       subHeader: ``,
-      message: `<ion-button fill="outline" slot="end">Correcto </ion-button>  <ion-button fill="outline" slot="end">Incorrecto </ion-button>`,
+      message: `<ion-button   >Correcto </ion-button>  <ion-button  >Incorrecto </ion-button>`,
       buttons: [
         {
+<<<<<<< Updated upstream
           text: 'Bien',
           role: 'cancel',
           cssClass: 'secondary',
+=======
+          text: "Cancelar",
+          role: "cancel",
+          cssClass: "secondary",
+>>>>>>> Stashed changes
           handler: (blah) => {
             console.log('Cancelar');
           },
