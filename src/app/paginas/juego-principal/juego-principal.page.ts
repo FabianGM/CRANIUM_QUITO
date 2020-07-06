@@ -32,10 +32,24 @@ export class JuegoPrincipalPage implements OnInit {
       header: ``,
       backdropDismiss: false,
       subHeader: ``,
-      message: `<h4>52 segundos restantes</h4><ion-img src="./assets/icon/relog_de_arena.gif"></ion-img>`,
+      message: `
+      <ion-list>
+          <ion-list-header>
+            <ion-label>
+             ¿GANADOR EL EQUIPO 1?
+            </ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-select placeholder="Seleccione">
+              <ion-select-option value="yes">Si</ion-select-option>
+              <ion-select-option value="no">No</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+  `,
       buttons: [
         {
-          text: 'Bien',
+          text: 'Continuar',
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
