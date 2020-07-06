@@ -31,6 +31,11 @@ export class AppComponent {
     icono: 'people-circle-outline',
     name: 'Equipos',
     redirecTo: '/equipos'
+  },
+  {
+    icono: 'newspaper-outline',
+    name: 'Home',
+    redirecTo: '/home'
   }
 ];
 

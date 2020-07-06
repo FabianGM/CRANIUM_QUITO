@@ -1,5 +1,4 @@
 <app-header titulo="Equipos"></app-header>
-
 <ion-content color="fondo">
 
     <form (ngSubmit)="registroDatos()">
@@ -7,12 +6,11 @@
             <ion-tab-button>
                 <ion-img src="./assets/icon/equipos2.png" style="width: 70%;"></ion-img>
             </ion-tab-button>
-            <ion-item color="fondo">
-                <ion-label position='floating'>Ingrese el nombre del Equipo 1:</ion-label>
-                <ion-input type='text' [(ngModel)]="informacion.equipo1" name="nombres"></ion-input>
-            </ion-item>
         </div>
-
+        <ion-item color="fondo">
+            <ion-label position='floating'>Ingrese el nombre del Equipo 1:</ion-label>
+            <ion-input type='text' [(ngModel)]="informacion.equipo1" name="nombres"></ion-input>
+        </ion-item>
         <ion-item color="fondo">
             <ion-label position='floating'>Ingrese el nombre del Equipo 2:</ion-label>
             <ion-input type='text' [(ngModel)]="informacion.equipo2" name="cedula"></ion-input>
