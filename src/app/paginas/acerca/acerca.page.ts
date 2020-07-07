@@ -23,7 +23,7 @@ export class AcercaPage implements OnInit {
   ,
   {
     src: './assets/icon/sebas.jpg',
-    name: 'Sebastián Danilo Guandinango de la Cruz'
+    name: 'S. D. Guandinango de la Cruz'
   }
 ];
 

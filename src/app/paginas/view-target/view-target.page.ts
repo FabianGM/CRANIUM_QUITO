@@ -21,7 +21,7 @@ export class ViewTargetPage implements OnInit {
       message: `<h4>52 segundos restantes</h4><ion-img src="./assets/icon/relog_de_arena.gif"></ion-img>`,
       buttons: [
         {
-          text: 'Bien',
+          text: 'Cancelar',
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
@@ -43,8 +43,8 @@ export class ViewTargetPage implements OnInit {
       message: `<ion-button   >Correcto </ion-button>  <ion-button  >Incorrecto </ion-button>`,
       buttons: [
         {
-          text: 'Bien',
-          role: 'cancel',
+          text: 'Enviar',
+          role: 'enviar',
           cssClass: 'secondary',
           handler: (blah) => {
             console.log('Cancelar');

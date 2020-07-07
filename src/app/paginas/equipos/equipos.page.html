@@ -1,9 +1,10 @@
 <app-header titulo="Equipos"></app-header>
-<ion-content color="fondo">
+<ion-content color="fondo" class="ion-padding">
 
     <form (ngSubmit)="registroDatos()">
         <div style="margin: 0 auto;">
             <ion-tab-button>
+
                 <ion-img src="./assets/icon/equipos2.png" style="width: 70%;"></ion-img>
             </ion-tab-button>
         </div>
@@ -15,9 +16,10 @@
             <ion-label position='floating'>Ingrese el nombre del Equipo 2:</ion-label>
             <ion-input type='text' [(ngModel)]="informacion.equipo2" name="cedula"></ion-input>
         </ion-item>
-        <ion-item color="fondo">
-            <ion-button color="primary" expand="full" type="submit">Aceptar</ion-button>
-        </ion-item>
+
+        <br/>
+        <ion-button color="primary" shape="block" type="submit">Aceptar</ion-button>
+
     </form>
 
 </ion-content>

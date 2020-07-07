@@ -21,15 +21,7 @@ export class ViewWithoutToRevealPage implements OnInit {
       message: `<h4>52 segundos restantes</h4><ion-img src="./assets/icon/relog_de_arena.gif"></ion-img> `
  ,
       buttons: [
-        {
-          text: "Enviar",
-          role: "enviar",
-          cssClass: "secondary",
-          handler: (blah) => {
-            console.log("Enviar");
-          },
-          
-        },
+     
         {
           text: 'Cancelar',
           role: 'cancelar',
