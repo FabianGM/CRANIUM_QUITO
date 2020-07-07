@@ -16,6 +16,7 @@ accion1(){
 this.val=this.val+1
 
 if(this.val===15){
+  
   this.ocultar1 = !this.ocultar1;
 }
 
