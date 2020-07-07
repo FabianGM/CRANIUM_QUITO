@@ -8,45 +8,14 @@ import { MenuController } from '@ionic/angular';
 })
 export class EquiposPage implements OnInit {
 
-  componentes: componentes[]=[
-    {
-    icono: 'settings-outline',
-    name: 'Configuracion',
-    redirecTo: '/configuracion'
-  },
-  {
-    icono: 'logo-reddit',
-    name: 'Objetivo',
-    redirecTo: '/objetivo'
-  }
-  ,
-  {
-    icono: 'document-text-outline',
-    name: 'Acerca de',
-    redirecTo: '/acerca'
-  }
-];
+  
 
 informacion={
   equipo1: '',
   equipo2:''
 }
-  constructor(private menu: MenuController) { }
+  constructor() { }
 
-  openFirst() {
-    this.menu.enable(true, 'first');
-    this.menu.open('first');
-  }
-
-  openEnd() {
-    this.menu.open('end');
-  }
-
-  openCustom() {
-    this.menu.enable(true, 'custom');
-    this.menu.open('custom');
-  }
-  
   ngOnInit() {
   }
 
@@ -54,10 +23,4 @@ informacion={
     console.log(this.informacion)
   }
 
-}
-
-interface componentes{
-  icono: String;
-  name: String;
-  redirecTo: String
 }

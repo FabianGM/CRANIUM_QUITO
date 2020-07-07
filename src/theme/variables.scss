@@ -81,6 +81,13 @@
     --ion-color-fondo-contrast-rgb: 255, 255, 255;
     --ion-color-fondo-shade: #cf3c4f;
     --ion-color-fondo-tint: #ed576b;
+    /** targeta morada**/
+    --ion-color-morado: #8027a0;
+    --ion-color-morado-rgb: 128, 39, 160;
+    --ion-color-morado-contrast: #ffffff;
+    --ion-color-morado-contrast-rgb: 255, 255, 255;
+    --ion-color-morado-shade: #71228d;
+    --ion-color-morado-tint: #8morado
 }
 
 .ion-color-encabezado {
@@ -99,6 +106,15 @@
     --ion-color-contrast-rgb: var(--ion-color-fondo-contrast-rgb)!important;
     --ion-color-shade: var(--ion-color-fondo-shade)!important;
     --ion-color-tint: var(--ion-color-fondo-tint)!important;
+}
+
+.ion-color-morado {
+    --ion-color-base: var(--ion-color-morado)!important;
+    --ion-color-base-rgb: var(--ion-color-morado-rgb)!important;
+    --ion-color-contrast: var(--ion-color-morado-contrast)!important;
+    --ion-color-contrast-rgb: var(--ion-color-morado-contrast-rgb)!important;
+    --ion-color-shade: var(--ion-color-morado-shade)!important;
+    --ion-color-tint: var(--ion-color-morado-tint)!important;
 }
 
 @media (prefers-color-scheme: dark) {

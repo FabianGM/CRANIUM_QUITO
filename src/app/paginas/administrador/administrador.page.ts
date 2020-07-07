@@ -37,21 +37,14 @@ export class AdministradorPage implements OnInit {
           }
   
   ]
-@Input() card;
-@Input() lastName;
-
-  async mostrarModal(color){
-    const modal = await this.modalCtrl.create({
-      component: ModalInfoPage,
-      cssClass: 'my-custom-class',
-      componentProps: {
-        card: color,
-        lastName: 'Adams',
-        
-      }
-    });
-     await modal.present();
-
- 
+  data={
+    descripcion:'',
+    palabraclave:'',
+    respuesta:''
   }
+
+  guardar(){
+    console.log(this.data)
+  }
+
 }

@@ -8,20 +8,20 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
- 
-  val=0
-  public ocultar1: boolean = false;
-accion1(){
-  
-this.val=this.val+1
 
-if(this.val===15){
-  
+  val = 0;
+  public ocultar1 = false;
+accion1(){
+
+this.val = this.val + 1;
+
+if (this.val === 15){
   this.ocultar1 = !this.ocultar1;
 }
 
 
-console.log(this.val)
+
+console.log(this.val);
 }
 
 }

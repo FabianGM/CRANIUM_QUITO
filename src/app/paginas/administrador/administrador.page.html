@@ -1,31 +1,52 @@
 <ion-header>
-  <app-header titulo="EQUIPO"></app-header>
-  <ion-toolbar>
-    <ion-title>Panel de administrador</ion-title>
+  <app-header titulo="Panel de administrador"></app-header>
+  
+</ion-header>
+
+<ion-header>
+  
+  <ion-toolbar color="fondo">
+    <ion-title>Insertar una card</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+<ion-content  color="fondo" class="ion-padding">
+  <ion-card>
+    <ion-img src="https://http2.mlstatic.com/cranium-20-hasbro-tablero-3-en-1-despacho-gratis-D_NQ_NP_938038-MLC28641751342_112018-F.jpg./assets/icon/c1.jpg"></ion-img>
+  </ion-card>
   
 
-  <ion-list > 
-        
-          
-   Insertar una targeta
-          
-    <ion-card ion-item *ngFor="let imagen of cartas"  >
-      <ion-card-header ><ion-card-title color="secondary"> {{imagen.card}}  </ion-card-title></ion-card-header>
-    
-          <img src= {{imagen.src}} (click)="mostrarModal(imagen.card)" />
-             
-
-    </ion-card>
-       
-    
-        
-  </ion-list>
-
   
+    <ion-item color="fondo">
+      <ion-label>Seleccionar Card</ion-label>
+      <ion-select >
+        <ion-select-option  value="r">Rojo</ion-select-option>
+        <ion-select-option  value="g">Verde</ion-select-option>
+        <ion-select-option value="b">Azul</ion-select-option>
+        <ion-select-option value="y">Amarillo</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+  <ion-item color="fondo">
+      <ion-label position="floating">Acertijo</ion-label>
+      <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
+  </ion-item>
+  <ion-item color="fondo">
+      <ion-label position="floating">Palabra Clave</ion-label>
+      <ion-input type="text" name="palabraclave" [(ngModel)]="data.palabraclave" ></ion-input>
+  </ion-item>
+
+  <ion-item color="fondo">
+    <ion-label position="floating">Respuesta</ion-label>
+    <ion-input type="text" name="respuesta"  [(ngModel)]="data.respuesta" ></ion-input>
+</ion-item>
+
+
+<ion-button expand="full" shape="round" (click)="guardar()"  >
+  Guardar
+  </ion-button>
 
 </ion-content>
 <ion-footer>

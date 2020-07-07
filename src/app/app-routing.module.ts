@@ -45,6 +45,22 @@ const routes: Routes = [
     path: 'estilos',
     loadChildren: () => import('./paginas/estilos/estilos.module').then( m => m.EstilosPageModule)
   },
+  {
+    path: 'view-target',
+    loadChildren: () => import('./paginas/view-target/view-target.module').then( m => m.ViewTargetPageModule)
+  },
+  {
+    path: 'view-without-to-reveal',
+    loadChildren: () => import('./paginas/view-without-to-reveal/view-without-to-reveal.module').then( m => m.ViewWithoutToRevealPageModule)
+  },
+  {
+    path: 'view-purple',
+    loadChildren: () => import('./paginas/view-purple/view-purple.module').then( m => m.ViewPurplePageModule)
+  },
+  {
+    path: 'juego-principal',
+    loadChildren: () => import('./paginas/juego-principal/juego-principal.module').then( m => m.JuegoPrincipalPageModule)
+  },
 ];
 
 @NgModule({
