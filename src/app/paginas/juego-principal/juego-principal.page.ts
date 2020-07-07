@@ -23,7 +23,7 @@ export class JuegoPrincipalPage implements OnInit {
   onClick(){
     this.mostrar_texto = false;
     this.src = './assets/icon/dado-color.gif';
-
+    this.alertCard();
 
   }
 
@@ -36,7 +36,7 @@ export class JuegoPrincipalPage implements OnInit {
       <ion-list>
           <ion-list-header>
             <ion-label>
-             ¿GANADOR EL EQUIPO 1?
+             ¿GANADOR EQUIPO LEONES?
             </ion-label>
           </ion-list-header>
           <ion-item>
@@ -47,6 +47,46 @@ export class JuegoPrincipalPage implements OnInit {
           </ion-item>
         </ion-list>
   `,
+      buttons: [
+        {
+          text: 'Continuar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Cancelar');
+          },
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+
+
+
+  async alertCard() {
+    const alert = await this.alertCtrl.create({
+      header: ``,
+      backdropDismiss: false,
+      subHeader: ``,
+      message: `<ion-card color="fondo">
+      <ion-card-header color="primary">
+        <ion-card-title><ion-icon name="paw-outline" ></ion-icon></ion-card-title>
+        <ion-card-title>EQUIPO LEONES</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+    <ion-item>
+
+    <ion-label>COLOR VERDE</ion-label>
+
+    </ion-item>
+
+    <ion-img src="./assets/icon/verde.jpg">
+    </ion-img>
+
+    </ion-card-content>
+    </ion-card>`,
       buttons: [
         {
           text: 'Continuar',
