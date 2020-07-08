@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Camera } from '@ionic-native/camera/ngx';
 
 @Component({
   selector: 'app-juego-principal',
@@ -15,7 +16,8 @@ export class JuegoPrincipalPage implements OnInit {
   mostrar_texto = true;
   src = './assets/icon/dado.jpg';
 
-  constructor(private alertCtrl: AlertController) { }
+  constructor(private alertCtrl: AlertController,
+              private camera: Camera) { }
 
   ngOnInit() {
   }
@@ -53,13 +55,17 @@ export class JuegoPrincipalPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Cancelar');
+            this.getCamera();
           },
         },
       ],
     });
 
     await alert.present();
+
+
+
+
   }
 
 
@@ -102,4 +108,16 @@ export class JuegoPrincipalPage implements OnInit {
     await alert.present();
   }
 
+  getCamera(){
+
+  this.camera.getPicture({
+    sourceType: this.camera.PictureSourceType.CAMERA,
+    destinationType: this.camera.DestinationType.FILE_URI
+  }).then((res) => {
+    console.log(res);
+  }).catch(e => {
+    console.log(e);
+  });
+
+  }
 }

@@ -11,7 +11,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
 
-  componentes: componentes[]=[
+  componentes: componentes[] = [
     {
     icono: 'settings-outline',
     name: 'Configuracion',
@@ -36,6 +36,11 @@ export class AppComponent {
     icono: 'newspaper-outline',
     name: 'Home',
     redirecTo: '/home'
+  },
+  {
+    icono: 'american-football-outline',
+    name: 'Juego Principal',
+    redirecTo: '/juego-principal'
   }
 ];
 
@@ -67,11 +72,12 @@ export class AppComponent {
     this.menu.enable(true, 'custom');
     this.menu.open('custom');
   }
-  
+
 }
 
+// tslint:disable-next-line: class-name
 interface componentes{
-  icono: String;
-  name: String;
-  redirecTo: String
+  icono: string;
+  name: string;
+  redirecTo: string;
 }

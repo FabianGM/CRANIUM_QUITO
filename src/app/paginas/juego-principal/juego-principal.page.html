@@ -5,6 +5,30 @@
 </ion-header>
 
 <ion-content color="fondo">
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+
+
+        <ion-fab-button>
+            <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+
+        <ion-fab-list side="start">
+
+            <ion-fab-button color="facebook">
+                <ion-icon name="logo-facebook"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button color="whatsapp">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+            </ion-fab-button>
+
+
+        </ion-fab-list>
+
+
+
+
+    </ion-fab>
     <ion-buttons>
         <ion-card *ngIf="mostrar_dado" (click)="onClick()" color="fondo" class="card">
 
@@ -26,19 +50,28 @@
     </div>
 
 
+
+
+
 </ion-content>
 
 
 <ion-footer>
+
     <ion-toolbar color="encabezado">
-        <ion-buttons (click)="presentAlert()">
+
+        <ion-buttons>
             <ion-button *ngFor="let item of [1,1,1,1]"></ion-button>
-            <ion-button>
+            <ion-button (click)="presentAlert()">
                 <ion-icon name="trophy-outline" slot="start"></ion-icon>
                 <h4>
                     GANADOR !!!!
                 </h4>
             </ion-button>
+
+
         </ion-buttons>
+
+
     </ion-toolbar>
 </ion-footer>
