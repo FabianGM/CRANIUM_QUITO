@@ -47,4 +47,57 @@ export class AdministradorPage implements OnInit {
     console.log(this.data)
   }
 
+  val = 0;
+  public rojo = false;
+  public verde = false;
+  public azul = false;
+  public morado = false;
+  public amarillo = false;
+  onChange(c){
+    if(c=='r'){
+      this.rojo = !this.rojo;
+      this.verde = false;
+      this.azul = false;
+      this.morado = false;
+      this.amarillo = false;
+    }
+
+    if(c=='g'){
+      this.verde = !this.verde;
+      this.rojo = false;
+      this.azul = false;
+      this.morado = false;
+      this.amarillo = false;
+      console.log(c)
+    }
+    if(c=='b'){
+      this.azul = !this.azul;
+      this.verde = false;
+      this.rojo = false;
+      this.morado = false;
+      this.amarillo = false;
+      console.log(c)
+    }
+    if(c=='y'){
+      this.amarillo = !this.rojo;
+      this.verde = false;
+      this.azul = false;
+      this.morado = false;
+      this.rojo = false;
+    }
+    if(c=='m'){
+      this.morado = !this.morado;
+      this.verde = false;
+      this.azul = false;
+      this.rojo = false;
+      this.amarillo = false;
+    }
+
+
+ 
+
+console.log(this.val);
+console.log(c);
+}
+  
 }

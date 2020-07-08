@@ -13,26 +13,54 @@
 
 <ion-content  color="fondo" class="ion-padding">
   <ion-card>
-    <ion-img src="https://http2.mlstatic.com/cranium-20-hasbro-tablero-3-en-1-despacho-gratis-D_NQ_NP_938038-MLC28641751342_112018-F.jpg./assets/icon/c1.jpg"></ion-img>
+    <ion-img src="./assets/icon/targetas.png"></ion-img>
   </ion-card>
   
 
   
     <ion-item color="fondo">
       <ion-label>Seleccionar Card</ion-label>
-      <ion-select >
-        <ion-select-option  value="r">Rojo</ion-select-option>
+      
+    <ion-select interface="popover"  #C (ionChange)="onChange(C.value)"   >
+
+        <ion-select-option  value="r">Rojo </ion-select-option>
         <ion-select-option  value="g">Verde</ion-select-option>
         <ion-select-option value="b">Azul</ion-select-option>
         <ion-select-option value="y">Amarillo</ion-select-option>
+        <ion-select-option value="m">Morado</ion-select-option>
       </ion-select>
+      <ion-item  *ngIf="rojo"  color="danger">
+        <ion-button expand="full" color="danger"> </ion-button>
+        
+      </ion-item>
+      <ion-item  *ngIf="verde"  color="success">
+        <ion-button expand="full" color="success"> </ion-button>
+        
+      </ion-item>
+      <ion-item  *ngIf="amarillo"  color="warning ">
+        <ion-button expand="full" color="warning"> </ion-button>
+        
+      </ion-item>
+      <ion-item  *ngIf="azul"  color="primary">
+        <ion-button expand="full" color="primary"> </ion-button>
+        
+      </ion-item>
+      <ion-item  *ngIf="morado"  color="morado">
+        <ion-button expand="full" color="morado"> </ion-button>
+        
+      </ion-item>
     </ion-item>
+ 
+    
 
 
   <ion-item color="fondo">
       <ion-label position="floating">Acertijo</ion-label>
       <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
   </ion-item>
+
+  
+
   <ion-item color="fondo">
       <ion-label position="floating">Palabra Clave</ion-label>
       <ion-input type="text" name="palabraclave" [(ngModel)]="data.palabraclave" ></ion-input>
@@ -47,6 +75,10 @@
 <ion-button expand="full" shape="round" (click)="guardar()"  >
   Guardar
   </ion-button>
+
+  <ion-card>
+    <ion-img src="./assets/icon/tr.jpg"></ion-img>
+  </ion-card>
 
 </ion-content>
 <ion-footer>
