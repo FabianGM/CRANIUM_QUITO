@@ -17,26 +17,26 @@ export class AcercaPage implements OnInit {
     {
     src: './assets/icon/churos.jpeg',
     name: 'Fabián Sebastián Garrido Mena',
-    correo: 'fgarridom@est.ups.edu.ec',
+    correo: 'fgarrido.videojuegos@gmail.com',
     telefono: '0982800451'
   },
   {
     src: './assets/icon/anthony.jpeg',
     name: 'Anthony Xavier Cárdenas Tuza',
-    correo: 'acardenast@est.ups.edu.ec',
+    correo: 'ac07ecu@gmail.com',
     telefono: '0995689611'
   },
   {
     src: './assets/icon/vero1.jpg',
     name: 'Verónica Estefania Pillajo Nogales',
-    correo: 'vpillajon@est.ups.edu.ec',
+    correo: 'verostefa2010@gmail.com',
     telefono: '0987416510'
   }
   ,
   {
     src: './assets/icon/sebas.jpg',
     name: 'Sebastián Danilo Guandinango de la Cruz',
-    correo: 'sguandinangod@est.ups.edu.ec',
+    correo: 'wonder1652@gmail.com',
     telefono: '0998452740'
   }
 ];

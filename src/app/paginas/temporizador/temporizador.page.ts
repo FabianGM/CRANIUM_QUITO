@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-temporizador',
@@ -8,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
 export class TemporizadorPage implements OnInit {
 
   porcentaje = 0.05;
+  rangeVal: String;
 
-  constructor() { }
+  constructor(public platform: Platform) {
+    this.platform.ready().then( ()=>{
+      this.rangeVal="60";
+    })
+   }
 
   ngOnInit() {
   }
