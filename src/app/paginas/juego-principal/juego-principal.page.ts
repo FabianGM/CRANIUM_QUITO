@@ -29,45 +29,7 @@ export class JuegoPrincipalPage implements OnInit {
 
   }
 
-  async presentAlert() {
-    const alert = await this.alertCtrl.create({
-      header: ``,
-      backdropDismiss: false,
-      subHeader: ``,
-      message: `
-      <ion-list>
-          <ion-list-header>
-            <ion-label>
-             ¿GANADOR EQUIPO LEONES?
-            </ion-label>
-          </ion-list-header>
-          <ion-item>
-            <ion-select placeholder="Seleccione">
-              <ion-select-option value="yes">Si</ion-select-option>
-              <ion-select-option value="no">No</ion-select-option>
-            </ion-select>
-          </ion-item>
-        </ion-list>
-  `,
-      buttons: [
-        {
-          text: 'Continuar',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            this.getCamera();
-          },
-        },
-      ],
-    });
-
-    await alert.present();
-
-
-
-
-  }
-
+ 
 
 
   async alertCard() {

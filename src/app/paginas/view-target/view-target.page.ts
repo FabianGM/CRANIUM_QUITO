@@ -30,11 +30,27 @@ export class ViewTargetPage implements OnInit {
     }, 1000)
   }
 
-  stopTimer(){
+  async stopTimer(){
     clearInterval(this.interval);
     this.time.next('00:00');
     this.state = 'stop';
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Ganador !!!',
+      subHeader: 'Sigue por el camino ',
+      message: ` </ion-item>
+      <ion-img src="./assets/icon/verde.jpg">
+      </ion-img>`,
+      buttons: ['Listo']
+    });
+
+    await alert.present();
   }
+
+
+ 
+
+  
 
   updateTimeValue(){
     let minutes: any = this.timer / 60;
