@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalInfoPage } from '../modal-info/modal-info.page';
-import { File } from '@ionic-native/file';
-import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-administrador',
@@ -10,11 +8,18 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./administrador.page.scss'],
 })
 export class AdministradorPage implements OnInit {
+  fondo_base: string;
+  encabezado_base: string;
+  pie_base: string;
+  fuente_base: string;
 
-  constructor(private modalCtrl:ModalController,private storage: Storage) { }
- datos=[] ;
- data1:any
- d=0
+  constructor(private modalCtrl:ModalController) { 
+    this.fondo_base = localStorage.getItem('fondo');
+    this.encabezado_base = localStorage.getItem('encabezado');
+    this.pie_base = localStorage.getItem('pie');
+    this.fuente_base = localStorage.getItem('fuente');
+  }
+
   ngOnInit() {
   }
   cartas=[
@@ -42,50 +47,13 @@ export class AdministradorPage implements OnInit {
   
   ]
   data={
-    card:'',
     descripcion:'',
-    pregunta:'',
-    pista:'',
+    palabraclave:'',
     respuesta:''
   }
-  
 
   guardar(){
-    
-    this. data1={
-      card:this.data.card,
-      descripcion:this.data.descripcion,
-      pregunta:this.data.pregunta,
-      
-      pista:this.data.pista,
-      respuesta:this.data.respuesta
-    }
-    
-    //console.log(this.data)
-    
-
-   
-  
-       this.datos.push(this.data1);
-    
-    this.storage.set('datosg.json', this.datos);
-    
-   
-   
-  // Or to get a key/value pair
-
-   
-  }
-
-  ver(){
-    this.storage.get('datosg.json').then((val) => {
-      console.log( val);
-      
-    });
-  }
-
-  clear() {
-    this.storage.clear();
+    console.log(this.data)
   }
 
   val = 0;
@@ -126,7 +94,7 @@ export class AdministradorPage implements OnInit {
       this.morado = false;
       this.rojo = false;
     }
-    if(c=='p'){
+    if(c=='m'){
       this.morado = !this.morado;
       this.verde = false;
       this.azul = false;
