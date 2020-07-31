@@ -1,22 +1,36 @@
-<app-header titulo="Temas"></app-header>
+<ion-header [translucent]="true">
+    <ion-toolbar [color]="encabezado_base">
+        <ion-title [class]="fuente_base" style="text-align:center;">
+            Temas
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
 
-<ion-content color="fondo">
+<ion-content [fullscreen]="true" [color]="fondo_base">
     <ion-img src="./assets/icon/temas.jpg"></ion-img>
-    <ion-item color="fondo">
+    <ion-item [color]="fondo_base">
         <ion-label>Modo Noche</ion-label>
         <ion-toggle slot="start" name="blueberry" checked></ion-toggle>
     </ion-item>
-    <ion-item color="fondo">
+    <ion-item [color]="fondo_base">
         <ion-label>Modo Exterior</ion-label>
         <ion-toggle slot="start" name="blueberry" checked></ion-toggle>
     </ion-item>
-    <ion-item color="fondo">
+    <ion-item [color]="fondo_base">
         <ion-label>Modo Fácil</ion-label>
         <ion-toggle slot="start" name="blueberry" checked></ion-toggle>
+    </ion-item>
+    <ion-item [color]="fondo_base">
+        <ion-label [class]="fuente_base">Temas</ion-label>
+        <ion-select placeholder="Select One" (ionChange)="OnChange($event)" [class]="fuente_base">
+            <ion-select-option value="tema1">Tema 1</ion-select-option>
+            <ion-select-option value="tema2">Tema 2</ion-select-option>
+            <ion-select-option value="tema3">Tema 3</ion-select-option>
+        </ion-select>
     </ion-item>
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar color="encabezado">
+    <ion-toolbar [color]="encabezado_base">
     </ion-toolbar>
 </ion-footer>

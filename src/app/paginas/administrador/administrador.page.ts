@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalInfoPage } from '../modal-info/modal-info.page';
-import { File } from '@ionic-native/file';
 import { Storage } from '@ionic/storage';
 
 @Component({
@@ -10,9 +9,18 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./administrador.page.scss'],
 })
 export class AdministradorPage implements OnInit {
+  fondo_base: string;
+  encabezado_base: string;
+  pie_base: string;
+  fuente_base: string;
 
-  constructor(private modalCtrl:ModalController,private storage: Storage) { }
- datos=[] ;
+  constructor(private modalCtrl:ModalController,private storage: Storage) { 
+    this.fondo_base = localStorage.getItem('fondo');
+    this.encabezado_base = localStorage.getItem('encabezado');
+    this.pie_base = localStorage.getItem('pie');
+    this.fuente_base = localStorage.getItem('fuente');
+  }
+datos=[] ;
  data1:any
  d=0
   ngOnInit() {
@@ -51,7 +59,7 @@ export class AdministradorPage implements OnInit {
   
 
   guardar(){
-    
+     //this.storage.set('datosg.json', this.cartas);
     this. data1={
       card:this.data.card,
       descripcion:this.data.descripcion,

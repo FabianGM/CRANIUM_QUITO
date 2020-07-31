@@ -18,7 +18,17 @@ export class ViewTargetPage implements OnInit {
 
   state: 'start' | 'stop' = 'stop';
 
-  constructor(public alertCtrl: AlertController) { }
+  fondo_base: string;
+  encabezado_base: string;
+  pie_base: string;
+  fuente_base: string;
+
+  constructor(public alertCtrl: AlertController) { 
+    this.fondo_base = localStorage.getItem('fondo');
+    this.encabezado_base = localStorage.getItem('encabezado');
+    this.pie_base = localStorage.getItem('pie');
+    this.fuente_base = localStorage.getItem('fuente');
+  }
 
   startTimer(duration: number){
     this.state = 'start';
@@ -30,27 +40,11 @@ export class ViewTargetPage implements OnInit {
     }, 1000)
   }
 
-  async stopTimer(){
+  stopTimer(){
     clearInterval(this.interval);
     this.time.next('00:00');
     this.state = 'stop';
-    const alert = await this.alertCtrl.create({
-      cssClass: 'my-custom-class',
-      header: 'Ganador !!!',
-      subHeader: 'Sigue por el camino ',
-      message: ` </ion-item>
-      <ion-img src="./assets/icon/verde.jpg">
-      </ion-img>`,
-      buttons: ['Listo']
-    });
-
-    await alert.present();
   }
-
-
- 
-
-  
 
   updateTimeValue(){
     let minutes: any = this.timer / 60;

@@ -22,9 +22,23 @@ export class JuegoPrincipalPage implements OnInit {
   color = '';
   etiqueta = '';
 
+
+  // tslint:disable-next-line: variable-name
+  fondo_base: string;
+  // tslint:disable-next-line: variable-name
+  encabezado_base: string;
+  // tslint:disable-next-line: variable-name
+  pie_base: string;
+  // tslint:disable-next-line: variable-name
+  fuente_base: string;
+
   constructor(private alertCtrl: AlertController,
-              private camera: Camera,
-              private storage: Storage) { }
+              private camera: Camera, private storage: Storage) {
+                this.fondo_base = localStorage.getItem('fondo');
+                this.encabezado_base = localStorage.getItem('encabezado');
+                this.pie_base = localStorage.getItem('pie');
+                this.fuente_base = localStorage.getItem('fuente');
+              }
 
   ngOnInit() {
     this.storage.get('equipos').then((val) => {
@@ -60,7 +74,7 @@ export class JuegoPrincipalPage implements OnInit {
       <ion-list>
           <ion-list-header>
             <ion-label>
-             ¿GANADOR EQUIPO ${this.equipo}?
+             ¿GANADOR EQUIPO LEONES?
             </ion-label>
           </ion-list-header>
           <ion-item>

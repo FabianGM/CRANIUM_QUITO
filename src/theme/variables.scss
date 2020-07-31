@@ -82,19 +82,47 @@
     --ion-color-light-shade: #d7d8da;
     --ion-color-light-tint: #f5f6f9;
     /** encabezado **/
-    --ion-color-encabezado: #2c95d3;
-    --ion-color-encabezado-rgb: 44, 149, 211;
-    --ion-color-encabezado-contrast: #ffffff;
-    --ion-color-encabezado-contrast-rgb: 255, 255, 255;
-    --ion-color-encabezado-shade: #2783ba;
-    --ion-color-encabezado-tint: #41a0d7;
+    --ion-color-encabezado: #38D430;
+    --ion-color-encabezado-rgb: 56, 212, 48;
+    --ion-color-encabezado-contrast: #000000;
+    --ion-color-encabezado-contrast-rgb: 0, 0, 0;
+    --ion-color-encabezado-shade: #31bb2a;
+    --ion-color-encabezado-tint: #4cd845;
     /** fondo **/
-    --ion-color-fondo: #eb445a;
-    --ion-color-fondo-rgb: 235, 68, 90;
-    --ion-color-fondo-contrast: #ffffff;
-    --ion-color-fondo-contrast-rgb: 255, 255, 255;
-    --ion-color-fondo-shade: #cf3c4f;
-    --ion-color-fondo-tint: #ed576b;
+    --ion-color-fondo: #FFA84D;
+    --ion-color-fondo-rgb: 255, 168, 77;
+    --ion-color-fondo-contrast: #000000;
+    --ion-color-fondo-contrast-rgb: 0, 0, 0;
+    --ion-color-fondo-shade: #e09444;
+    --ion-color-fondo-tint: #ffb15f;
+    /** encabezado1 **/
+    --ion-color-encabezado1: #1D1D1B;
+    --ion-color-encabezado1-rgb: 29, 29, 27;
+    --ion-color-encabezado1-contrast: #ffffff;
+    --ion-color-encabezado1-contrast-rgb: 255, 255, 255;
+    --ion-color-encabezado1-shade: #1a1a18;
+    --ion-color-encabezado1-tint: #343432;
+    /** fondo1 **/
+    --ion-color-fondo1: #27348B;
+    --ion-color-fondo1-rgb: 39, 52, 139;
+    --ion-color-fondo1-contrast: #ffffff;
+    --ion-color-fondo1-contrast-rgb: 255, 255, 255;
+    --ion-color-fondo1-shade: #222e7a;
+    --ion-color-fondo1-tint: #3d4897;
+    /** encabezado2 **/
+    --ion-color-encabezado2: #71E4D1;
+    --ion-color-encabezado2-rgb: 113, 228, 209;
+    --ion-color-encabezado2-contrast: #000000;
+    --ion-color-encabezado2-contrast-rgb: 0, 0, 0;
+    --ion-color-encabezado2-shade: #63c9b8;
+    --ion-color-encabezado2-tint: #7fe7d6;
+    /** fondo2 **/
+    --ion-color-fondo2: #E94D97;
+    --ion-color-fondo2-rgb: 233, 77, 151;
+    --ion-color-fondo2-contrast: #000000;
+    --ion-color-fondo2-contrast-rgb: 0, 0, 0;
+    --ion-color-fondo2-shade: #cd4485;
+    --ion-color-fondo2-tint: #eb5fa1;
     /** targeta morada**/
     --ion-color-morado: #8027a0;
     --ion-color-morado-rgb: 128, 39, 160;
@@ -120,6 +148,42 @@
     --ion-color-contrast-rgb: var(--ion-color-fondo-contrast-rgb)!important;
     --ion-color-shade: var(--ion-color-fondo-shade)!important;
     --ion-color-tint: var(--ion-color-fondo-tint)!important;
+}
+
+.ion-color-encabezado1 {
+    --ion-color-base: var(--ion-color-encabezado1)!important;
+    --ion-color-base-rgb: var(--ion-color-encabezado1-rgb)!important;
+    --ion-color-contrast: var(--ion-color-encabezado1-contrast)!important;
+    --ion-color-contrast-rgb: var(--ion-color-encabezado1-contrast-rgb)!important;
+    --ion-color-shade: var(--ion-color-encabezado1-shade)!important;
+    --ion-color-tint: var(--ion-color-encabezado1-tint)!important;
+}
+
+.ion-color-fondo1 {
+    --ion-color-base: var(--ion-color-fondo1)!important;
+    --ion-color-base-rgb: var(--ion-color-fondo1-rgb)!important;
+    --ion-color-contrast: var(--ion-color-fondo1-contrast)!important;
+    --ion-color-contrast-rgb: var(--ion-color1-fondo-contrast-rgb)!important;
+    --ion-color-shade: var(--ion-color-fondo1-shade)!important;
+    --ion-color-tint: var(--ion-color-fondo1-tint)!important;
+}
+
+.ion-color-encabezado2 {
+    --ion-color-base: var(--ion-color-encabezado2)!important;
+    --ion-color-base-rgb: var(--ion-color-encabezado2-rgb)!important;
+    --ion-color-contrast: var(--ion-color-encabezado2-contrast)!important;
+    --ion-color-contrast-rgb: var(--ion-color-encabezado2-contrast-rgb)!important;
+    --ion-color-shade: var(--ion-color-encabezado2-shade)!important;
+    --ion-color-tint: var(--ion-color-encabezado2-tint)!important;
+}
+
+.ion-color-fondo2 {
+    --ion-color-base: var(--ion-color-fondo2)!important;
+    --ion-color-base-rgb: var(--ion-color-fondo2-rgb)!important;
+    --ion-color-contrast: var(--ion-color-fondo2-contrast)!important;
+    --ion-color-contrast-rgb: var(--ion-color2-fondo-contrast-rgb)!important;
+    --ion-color-shade: var(--ion-color-fondo2-shade)!important;
+    --ion-color-tint: var(--ion-color-fondo2-tint)!important;
 }
 
 .ion-color-morado {
