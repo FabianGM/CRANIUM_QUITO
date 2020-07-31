@@ -1,10 +1,10 @@
 <ion-header>
-    <ion-toolbar color="encabezado">
+    <ion-toolbar [color]="encabezado_base">
         <ion-title class="ion-text-center"> CRANIUM </ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content color="fondo">
+<ion-content [color]="fondo_base">
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed">
 
@@ -30,7 +30,7 @@
 
     </ion-fab>
     <ion-buttons>
-        <ion-card *ngIf="mostrar_dado" (click)="onClick()" color="fondo" class="card">
+        <ion-card *ngIf="mostrar_dado" (click)="onClick()" [color]="fondo_base" class="card">
 
             <ion-card-header>
                 <h3 *ngIf="mostrar_texto">
@@ -45,8 +45,8 @@
 
     <div>
 
-        <ion-title>Turno Equipo:</ion-title>
-        <ion-title>{{equipo}}</ion-title>
+        <ion-title>Turno:</ion-title>
+        <ion-title>Equipo Leones</ion-title>
     </div>
 
 
@@ -58,7 +58,7 @@
 
 <ion-footer>
 
-    <ion-toolbar color="encabezado">
+    <ion-toolbar [color]="encabezado_base">
 
         <ion-buttons>
             <ion-button *ngFor="let item of [1,1,1,1]"></ion-button>
