@@ -3,15 +3,14 @@
 <ion-content padding color="fondo">
     <div>
         <h5> Desarolladores:</h5>
-        <ion-item *ngFor="let cp of componentes" class="ion-no-border" color="fondo">
+        <ion-item *ngFor="let cp of componentes" class="ion-no-border" color="fondo" (click)="presentAlert(cp)" detail>{{cp.name}}
             <ion-avatar slot="start">
-                <img src="{{cp.src}}">
+                <img src="{{cp.src}} ">
             </ion-avatar>
-            <ion-label>{{cp.name}}</ion-label>
         </ion-item>
     </div>
 </ion-content>
 <ion-footer>
-    <ion-toolbar color="encabezado">
+    <ion-toolbar color="encabezado ">
     </ion-toolbar>
 </ion-footer>

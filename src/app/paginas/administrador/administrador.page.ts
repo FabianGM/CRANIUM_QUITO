@@ -51,7 +51,7 @@ export class AdministradorPage implements OnInit {
   
 
   guardar(){
-     this.storage.set('datosg.json', this.cartas);
+    
     this. data1={
       card:this.data.card,
       descripcion:this.data.descripcion,
@@ -68,7 +68,7 @@ export class AdministradorPage implements OnInit {
   
        this.datos.push(this.data1);
     
-   // this.storage.set('datosg.json', this.datos);
+    this.storage.set('datosg.json', this.datos);
     
    
    

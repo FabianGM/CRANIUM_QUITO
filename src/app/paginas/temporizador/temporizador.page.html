@@ -3,12 +3,14 @@
 <ion-content color="fondo">
     <ion-img src="./assets/icon/t1.jpg"></ion-img>
     <ion-item color="fondo">
-        <ion-range (ionChange)="cambioRango($event)" min="1" max="100" pin="true" color="dark">
-            <ion-label slot="start">0</ion-label>
-            <ion-label slot="end">100</ion-label>
+        <ion-range [(ngModel)]="rangeVal" min="60" max="240" pin="true" color="dark">
+            <ion-label slot="start">60</ion-label>
+            <ion-label slot="end">240</ion-label>
         </ion-range>
     </ion-item>
-
+    <ion-item color="fondo">
+        <p>El tiempo que eligió es: {{rangeVal}}</p>
+    </ion-item>
 </ion-content>
 
 <ion-footer>

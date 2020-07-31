@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-equipos',
@@ -8,19 +8,22 @@ import { MenuController } from '@ionic/angular';
 })
 export class EquiposPage implements OnInit {
 
-  
-
-informacion={
+ informacion = {
   equipo1: '',
-  equipo2:''
-}
-  constructor() { }
+  equipo2: ''
+};
+
+  constructor(private storage: Storage) { }
 
   ngOnInit() {
   }
 
   registroDatos(){
-    console.log(this.informacion)
+    console.log(this.informacion);
+
+
+    this.storage.set('equipos', this.informacion);
+
   }
 
 }
