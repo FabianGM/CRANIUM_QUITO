@@ -21,14 +21,14 @@
     <ion-item color="fondo">
       <ion-label>Seleccionar Card</ion-label>
       
-    <ion-select interface="popover"  #C (ionChange)="onChange(C.value)"   >
+    <ion-select [(ngModel)]="data.card" interface="popover"  #C (ionChange)="onChange(C.value)"   >
 
-        <ion-select-option  value="r">Rojo </ion-select-option>
+        <ion-select-option  value="r"  >Rojo </ion-select-option>
         <ion-select-option  value="g">Verde</ion-select-option>
         <ion-select-option value="b">Azul</ion-select-option>
         <ion-select-option value="y">Amarillo</ion-select-option>
-        <ion-select-option value="m">Morado</ion-select-option>
-      </ion-select>
+        <ion-select-option value="p">Morado</ion-select-option>
+      </ion-select >
       <ion-item  *ngIf="rojo"  color="danger">
         <ion-button expand="full" color="danger"> </ion-button>
         
@@ -55,15 +55,20 @@
 
 
   <ion-item color="fondo">
-      <ion-label position="floating">Acertijo</ion-label>
+      <ion-label position="floating">Descripcion</ion-label>
       <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
   </ion-item>
+
+  <ion-item color="fondo">
+    <ion-label position="floating">Pregunta</ion-label>
+    <ion-input type="text" [(ngModel)]="data.pregunta"></ion-input>
+</ion-item>
 
   
 
   <ion-item color="fondo">
-      <ion-label position="floating">Palabra Clave</ion-label>
-      <ion-input type="text" name="palabraclave" [(ngModel)]="data.palabraclave" ></ion-input>
+      <ion-label position="floating">Pista</ion-label>
+      <ion-input type="text" name="pista" [(ngModel)]="data.pista" ></ion-input>
   </ion-item>
 
   <ion-item color="fondo">
@@ -75,6 +80,15 @@
 <ion-button expand="full" shape="round" (click)="guardar()"  >
   Guardar
   </ion-button>
+
+  
+<ion-button expand="full" shape="round" (click)="ver()"  >
+  Ver
+  </ion-button>
+
+  <ion-button expand="full" shape="round" (click)="clear()"  >
+    Eliminar
+    </ion-button>
 
   <ion-card>
     <ion-img src="./assets/icon/tr.jpg"></ion-img>
