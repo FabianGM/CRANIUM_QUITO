@@ -5,12 +5,12 @@
 
     <ion-menu side="start" menuId="first" contentId="main">
         <ion-header>
-            <ion-toolbar [color]="encabezado_base">
+            <ion-toolbar color="encabezado">
                 <ion-title>Menu</ion-title>
             </ion-toolbar>
         </ion-header>
-        <ion-content [color]="fondo_base">
-            <ion-item *ngFor="let cp of componentes" [routerLink]="cp.redirecTo" detail [color]="fondo_base">
+        <ion-content color="fondo">
+            <ion-item *ngFor="let cp of componentes" [routerLink]="cp.redirecTo" detail color="fondo">
                 <ion-icon slot="start" [name]="cp.icono"></ion-icon>
                 <ion-label>{{cp.name}}</ion-label>
             </ion-item>

@@ -1,87 +1,101 @@
 <ion-header>
-    <app-header titulo="Panel de administrador"></app-header>
-
+  <app-header titulo="Panel de administrador"></app-header>
+  
 </ion-header>
 
 <ion-header>
-
-    <ion-toolbar [color]="fondo_base">
-        <ion-title>Insertar una card</ion-title>
-    </ion-toolbar>
+  
+  <ion-toolbar color="fondo">
+    <ion-title>Insertar una card</ion-title>
+  </ion-toolbar>
 </ion-header>
 
 
-<ion-content [color]="fondo_base" class="ion-padding">
-    <ion-card>
-        <ion-img src="./assets/icon/targetas.png"></ion-img>
-    </ion-card>
+<ion-content  color="fondo" class="ion-padding">
+  <ion-card>
+    <ion-img src="./assets/icon/targetas.png"></ion-img>
+  </ion-card>
+  
 
+  
+    <ion-item color="fondo">
+      <ion-label>Seleccionar Card</ion-label>
+      
+    <ion-select [(ngModel)]="data.card" interface="popover"  #C (ionChange)="onChange(C.value)"   >
 
-
-    <ion-item [color]="fondo_base">
-        <ion-label>Seleccionar Card</ion-label>
-
-        <ion-select interface="popover" #C (ionChange)="onChange(C.value)">
-
-            <ion-select-option value="r">Rojo </ion-select-option>
-            <ion-select-option value="g">Verde</ion-select-option>
-            <ion-select-option value="b">Azul</ion-select-option>
-            <ion-select-option value="y">Amarillo</ion-select-option>
-            <ion-select-option value="m">Morado</ion-select-option>
-        </ion-select>
-        <ion-item *ngIf="rojo" color="danger">
-            <ion-button expand="full" color="danger"> </ion-button>
-
-        </ion-item>
-        <ion-item *ngIf="verde" color="success">
-            <ion-button expand="full" color="success"> </ion-button>
-
-        </ion-item>
-        <ion-item *ngIf="amarillo" color="warning ">
-            <ion-button expand="full" color="warning"> </ion-button>
-
-        </ion-item>
-        <ion-item *ngIf="azul" color="primary">
-            <ion-button expand="full" color="primary"> </ion-button>
-
-        </ion-item>
-        <ion-item *ngIf="morado" color="morado">
-            <ion-button expand="full" color="morado"> </ion-button>
-
-        </ion-item>
+        <ion-select-option  value="r"  >Rojo </ion-select-option>
+        <ion-select-option  value="g">Verde</ion-select-option>
+        <ion-select-option value="b">Azul</ion-select-option>
+        <ion-select-option value="y">Amarillo</ion-select-option>
+        <ion-select-option value="p">Morado</ion-select-option>
+      </ion-select >
+      <ion-item  *ngIf="rojo"  color="danger">
+        <ion-button expand="full" color="danger"> </ion-button>
+        
+      </ion-item>
+      <ion-item  *ngIf="verde"  color="success">
+        <ion-button expand="full" color="success"> </ion-button>
+        
+      </ion-item>
+      <ion-item  *ngIf="amarillo"  color="warning ">
+        <ion-button expand="full" color="warning"> </ion-button>
+        
+      </ion-item>
+      <ion-item  *ngIf="azul"  color="primary">
+        <ion-button expand="full" color="primary"> </ion-button>
+        
+      </ion-item>
+      <ion-item  *ngIf="morado"  color="morado">
+        <ion-button expand="full" color="morado"> </ion-button>
+        
+      </ion-item>
     </ion-item>
+ 
+    
 
 
+  <ion-item color="fondo">
+      <ion-label position="floating">Descripcion</ion-label>
+      <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
+  </ion-item>
+
+  <ion-item color="fondo">
+    <ion-label position="floating">Pregunta</ion-label>
+    <ion-input type="text" [(ngModel)]="data.pregunta"></ion-input>
+</ion-item>
+
+  
+
+  <ion-item color="fondo">
+      <ion-label position="floating">Pista</ion-label>
+      <ion-input type="text" name="pista" [(ngModel)]="data.pista" ></ion-input>
+  </ion-item>
+
+  <ion-item color="fondo">
+    <ion-label position="floating">Respuesta</ion-label>
+    <ion-input type="text" name="respuesta"  [(ngModel)]="data.respuesta" ></ion-input>
+</ion-item>
 
 
-    <ion-item [color]="fondo_base">
-        <ion-label position="floating">Acertijo</ion-label>
-        <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
-    </ion-item>
+<ion-button expand="full" shape="round" (click)="guardar()"  >
+  Guardar
+  </ion-button>
 
+  
+<ion-button expand="full" shape="round" (click)="ver()"  >
+  Ver
+  </ion-button>
 
-
-    <ion-item [color]="fondo_base">
-        <ion-label position="floating">Palabra Clave</ion-label>
-        <ion-input type="text" name="palabraclave" [(ngModel)]="data.palabraclave"></ion-input>
-    </ion-item>
-
-    <ion-item color=[color]="fondo_base">
-        <ion-label position="floating">Respuesta</ion-label>
-        <ion-input type="text" name="respuesta" [(ngModel)]="data.respuesta"></ion-input>
-    </ion-item>
-
-
-    <ion-button expand="full" shape="round" (click)="guardar()">
-        Guardar
+  <ion-button expand="full" shape="round" (click)="clear()"  >
+    Eliminar
     </ion-button>
 
-    <ion-card>
-        <ion-img src="./assets/icon/tr.jpg"></ion-img>
-    </ion-card>
+  <ion-card>
+    <ion-img src="./assets/icon/tr.jpg"></ion-img>
+  </ion-card>
 
 </ion-content>
 <ion-footer>
-    <ion-toolbar [color]="encabezado_base">
-    </ion-toolbar>
+  <ion-toolbar color="encabezado">
+  </ion-toolbar>
 </ion-footer>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { Camera } from '@ionic-native/camera/ngx';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-juego-principal',
@@ -14,22 +15,32 @@ export class JuegoPrincipalPage implements OnInit {
   mostrar_dado = true;
   // tslint:disable-next-line: variable-name
   mostrar_texto = true;
-  src = './assets/icon/dado.jpg';
+  src = './assets/icon/dado.jpeg';
 
-  fondo_base: string;
-  encabezado_base: string;
-  pie_base: string;
-  fuente_base: string;
+
+  equipo = [];
+
 
   constructor(private alertCtrl: AlertController,
-              private camera: Camera) { 
-                this.fondo_base = localStorage.getItem('fondo');
-    this.encabezado_base = localStorage.getItem('encabezado');
-    this.pie_base = localStorage.getItem('pie');
-    this.fuente_base = localStorage.getItem('fuente');
-              }
+              private camera: Camera,
+              private storage: Storage) { }
 
   ngOnInit() {
+    this.storage.get('equipos').then((val) => {
+      console.log('Los equipos son: ', val);
+      // this.equipo = val;
+
+      const randomico = Math.floor((Math.random() * 0) + 1);
+
+      if (randomico === 0){
+        this.equipo = val.equipo1;
+      }else{
+        this.equipo = val.equipo2;
+      }
+
+      // console.log(randomico);
+      // console.log(this.equipo['equipo2']);
+    });
   }
 
   onClick(){
@@ -48,7 +59,7 @@ export class JuegoPrincipalPage implements OnInit {
       <ion-list>
           <ion-list-header>
             <ion-label>
-             ¿GANADOR EQUIPO LEONES?
+             ¿GANADOR EQUIPO ${this.equipo}?
             </ion-label>
           </ion-list-header>
           <ion-item>

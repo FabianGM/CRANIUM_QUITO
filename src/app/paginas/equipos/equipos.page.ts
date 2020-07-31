@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-equipos',
@@ -8,28 +8,22 @@ import { MenuController } from '@ionic/angular';
 })
 export class EquiposPage implements OnInit {
 
-  
-  fondo_base: string;
-  encabezado_base: string;
-  pie_base: string;
-  fuente_base: string;
-
-informacion={
+ informacion = {
   equipo1: '',
-  equipo2:''
-}
-  constructor() {
-    this.fondo_base = localStorage.getItem('fondo');
-    this.encabezado_base = localStorage.getItem('encabezado');
-    this.pie_base = localStorage.getItem('pie');
-    this.fuente_base = localStorage.getItem('fuente');
-   }
+  equipo2: ''
+};
+
+  constructor(private storage: Storage) { }
 
   ngOnInit() {
   }
 
   registroDatos(){
-    console.log(this.informacion)
+    console.log(this.informacion);
+
+
+    this.storage.set('equipos', this.informacion);
+
   }
 
 }

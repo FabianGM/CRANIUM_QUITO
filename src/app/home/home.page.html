@@ -1,21 +1,21 @@
 <app-header titulo="Bienvenido al juego"></app-header>
 
-<ion-content [fullscreen]="true" class="background" (click)="accion1()">
+<ion-content [fullscreen]="true" class="background" (click)="accion1()" >
 
 
     <div id="container">
 
-        <ion-button shape="round" [color]="encabezado_base" [routerLink]="[ '/equipos'] "> Iniciar partida </ion-button>
+        <ion-button shape="round" color="encabezado " [routerLink]="[ '/equipos'] "> Iniciar partida </ion-button>
 
     </div>
 
-    <ion-item *ngIf="ocultar1" [color]="fondo_base">
-        <ion-button expand="full" shape="round" [routerLink]="[ '/administrador']"> Admin </ion-button>
-    </ion-item>
+<ion-item  *ngIf="ocultar1"  color="fondo ">
+  <ion-button expand="full"  shape="round" [routerLink]="[ '/administrador']"> Admin </ion-button>
+</ion-item>
 
 </ion-content>
-<ion-footer>
-    <ion-toolbar [color]="encabezado_base"> Copyright (©)
+<ion-footer >
+  <ion-toolbar color="encabezado" >  Copyright (©)
 
     </ion-toolbar>
 

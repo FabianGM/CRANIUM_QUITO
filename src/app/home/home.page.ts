@@ -7,17 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  fondo_base: string;
-  encabezado_base: string;
-  pie_base: string;
-  fuente_base: string;
-
-  constructor() {
-    this.fondo_base = localStorage.getItem('fondo');
-    this.encabezado_base = localStorage.getItem('encabezado');
-    this.pie_base = localStorage.getItem('pie');
-    this.fuente_base = localStorage.getItem('fuente');
-  }
+  constructor() {}
 
   val = 0;
   public ocultar1 = false;
