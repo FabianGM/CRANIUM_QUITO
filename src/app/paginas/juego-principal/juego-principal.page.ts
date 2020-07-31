@@ -19,7 +19,8 @@ export class JuegoPrincipalPage implements OnInit {
 
 
   equipo = [];
-
+  color = '';
+  etiqueta = '';
 
   constructor(private alertCtrl: AlertController,
               private camera: Camera,
@@ -27,12 +28,12 @@ export class JuegoPrincipalPage implements OnInit {
 
   ngOnInit() {
     this.storage.get('equipos').then((val) => {
-      console.log('Los equipos son: ', val);
+      // console.log('Los equipos son: ', val);
       // this.equipo = val;
 
-      const randomico = Math.floor((Math.random() * 0) + 1);
-
-      if (randomico === 0){
+      const randomico = Math.round(Math.random() * (2 - 1) + 1);
+      // console.log(randomico);
+      if (randomico === 1){  // 1 pertenece al 1er Equipo
         this.equipo = val.equipo1;
       }else{
         this.equipo = val.equipo2;
@@ -92,6 +93,31 @@ export class JuegoPrincipalPage implements OnInit {
 
 
   async alertCard() {
+
+    const randomico = Math.round(Math.random() * (5 - 1) + 1);
+    // console.log('VALOR:', randomico);
+
+    if (randomico === 1 ){ // 1 SERÁ PARA EL COLOR VERDE
+      this.color = './assets/icon/verde.jpg';
+      this.etiqueta = 'Color Verde';
+    }
+    if (randomico === 2){ // 2 SERÁ PARA EL COLOR AZUL
+      this.color = './assets/icon/azul.png';
+      this.etiqueta = 'Color Azul';
+    }
+    if (randomico === 3){ // 3 SERÁ PARA EL COLOR AMARILLO
+      this.color = './assets/icon/amarillo.png';
+      this.etiqueta = 'Color Amarillo';
+    }
+    if (randomico === 4){ // 4 SERÁ PARA EL COLOR ROJO
+      this.color = './assets/icon/rojo.png';
+      this.etiqueta = 'Color Rojo';
+    }
+    if (randomico === 5){ // 5 SERÁ PARA EL COLOR ROJO
+      this.color = './assets/icon/morado.png';
+      this.etiqueta = 'Color Morado';
+    }
+
     const alert = await this.alertCtrl.create({
       header: ``,
       backdropDismiss: false,
@@ -99,17 +125,17 @@ export class JuegoPrincipalPage implements OnInit {
       message: `<ion-card color="fondo">
       <ion-card-header color="primary">
         <ion-card-title><ion-icon name="paw-outline" ></ion-icon></ion-card-title>
-        <ion-card-title>EQUIPO LEONES</ion-card-title>
+        <ion-card-title>${this.equipo}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
     <ion-list>
     <ion-item>
 
-    <ion-label>COLOR VERDE</ion-label>
+    <ion-label>${this.etiqueta } </ion-label>
 
     </ion-item>
 
-    <ion-img src="./assets/icon/verde.jpg">
+    <ion-img src=${this.color}>
     </ion-img>
 
     </ion-card-content>
