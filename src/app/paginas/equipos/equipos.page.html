@@ -9,16 +9,16 @@
             </ion-tab-button>
         </div>
         <ion-item [color]="fondo_base">
-            <ion-label position='floating'>Ingrese el nombre del Equipo 1:</ion-label>
+            <ion-label position='floating' [class]="fuente_base">Ingrese el nombre del Equipo 1:</ion-label>
             <ion-input type='text' [(ngModel)]="informacion.equipo1" name="nombres"></ion-input>
         </ion-item>
         <ion-item [color]="fondo_base">
-            <ion-label position='floating'>Ingrese el nombre del Equipo 2:</ion-label>
+            <ion-label position='floating' [class]="fuente_base">Ingrese el nombre del Equipo 2:</ion-label>
             <ion-input type='text' [(ngModel)]="informacion.equipo2" name="cedula"></ion-input>
         </ion-item>
 
         <br/>
-        <ion-button routerLink="/juego-principal" color="primary" shape="block" type="submit">Aceptar</ion-button>
+        <ion-button routerLink="/juego-principal" color="primary" shape="block" type="submit" [class]="fuente_base">Aceptar</ion-button>
 
     </form>
 

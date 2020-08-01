@@ -5,18 +5,17 @@
 
     <div id="container">
 
-        <ion-button shape="round" [color]="encabezado_base" [routerLink]="[ '/equipos'] "> Iniciar partida </ion-button>
-        
+        <ion-button shape="round" [color]="encabezado_base" [routerLink]="[ '/equipos'] " [class]="fuente_base"> Iniciar partida </ion-button>
 
     </div>
 
     <ion-item *ngIf="ocultar1" [color]="fondo_base">
-        <ion-button expand="full" shape="round" [routerLink]="[ '/administrador']"> Admin </ion-button>
+        <ion-button expand="full" shape="round" [routerLink]="[ '/administrador']" [class]="fuente_base"> Admin </ion-button>
     </ion-item>
 
 </ion-content>
 <ion-footer>
-    <ion-toolbar [color]="encabezado_base"> Copyright (©)
+    <ion-toolbar [color]="encabezado_base" [class]="fuente_base"> Copyright (©)
 
     </ion-toolbar>
 

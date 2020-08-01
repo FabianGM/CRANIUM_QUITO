@@ -11,7 +11,6 @@ import { Storage } from '@ionic/storage';
 export class JuegoPrincipalPage implements OnInit {
   arreglocartas=[]
 
-
   // tslint:disable-next-line: variable-name
   mostrar_dado = true;
   // tslint:disable-next-line: variable-name
@@ -43,21 +42,25 @@ export class JuegoPrincipalPage implements OnInit {
               }
 
   ngOnInit() {
-    this.storage.get('equipos').then((val) => {
-      // console.log('Los equipos son: ', val);
-      // this.equipo = val;
-
-      const randomico = Math.round(Math.random() * (2 - 1) + 1);
-      // console.log(randomico);
-      if (randomico === 1){  // 1 pertenece al 1er Equipo
-        this.equipo = val.equipo1;
-      }else{
-        this.equipo = val.equipo2;
-      }
-
-      // console.log(randomico);
-      // console.log(this.equipo['equipo2']);
-    });
+    setTimeout(() => {
+      this.storage.get('equipos').then((val) => {
+        // console.log('Los equipos son: ', val);
+        // this.equipo = val;
+  
+        const randomico = Math.round(Math.random() * (2 - 1) + 1);
+        // console.log(randomico);
+        if (randomico === 1){  // 1 pertenece al 1er Equipo
+          this.equipo = val.equipo1;
+        }else{
+          this.equipo = val.equipo2;
+        }
+  
+        console.log(randomico);
+        // console.log(this.equipo['equipo2']);
+      });
+      
+    }, 500);
+    
   }
 
   onClick(){

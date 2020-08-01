@@ -33,7 +33,7 @@ export class ViewTargetPage implements OnInit {
   startTimer(duration: number){
     this.state = 'start';
     clearInterval(this.interval);
-    this.timer = duration * 5;
+    this.timer = duration * 60;
     this.updateTimeValue;
     this.interval =  setInterval( () =>{
       this.updateTimeValue();
