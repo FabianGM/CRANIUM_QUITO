@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { Camera } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
 
@@ -32,7 +32,8 @@ export class JuegoPrincipalPage implements OnInit {
   // tslint:disable-next-line: variable-name
   fuente_base: string;
 
-  constructor(private alertCtrl: AlertController,
+  constructor(private navCtrl: NavController,
+              private alertCtrl: AlertController,
               private camera: Camera, private storage: Storage) {
                 this.fondo_base = localStorage.getItem('fondo');
                 this.encabezado_base = localStorage.getItem('encabezado');
@@ -113,23 +114,23 @@ export class JuegoPrincipalPage implements OnInit {
 
     if (randomico === 1 ){ // 1 SERÁ PARA EL COLOR VERDE
       this.color = './assets/icon/verde.jpg';
-      this.etiqueta = 'Color Verde';
+      this.etiqueta = 'Verde';
     }
     if (randomico === 2){ // 2 SERÁ PARA EL COLOR AZUL
       this.color = './assets/icon/azul.png';
-      this.etiqueta = 'Color Azul';
+      this.etiqueta = 'Azul';
     }
     if (randomico === 3){ // 3 SERÁ PARA EL COLOR AMARILLO
       this.color = './assets/icon/amarillo.png';
-      this.etiqueta = 'Color Amarillo';
+      this.etiqueta = 'Amarillo';
     }
     if (randomico === 4){ // 4 SERÁ PARA EL COLOR ROJO
       this.color = './assets/icon/rojo.png';
-      this.etiqueta = 'Color Rojo';
+      this.etiqueta = 'Rojo';
     }
     if (randomico === 5){ // 5 SERÁ PARA EL COLOR ROJO
       this.color = './assets/icon/morado.png';
-      this.etiqueta = 'Color Morado';
+      this.etiqueta = 'Morado';
     }
 
     const alert = await this.alertCtrl.create({
@@ -145,7 +146,7 @@ export class JuegoPrincipalPage implements OnInit {
     <ion-list>
     <ion-item>
 
-    <ion-label>${this.etiqueta } </ion-label>
+    <ion-label>Color ${this.etiqueta } </ion-label>
 
     </ion-item>
 
@@ -161,6 +162,25 @@ export class JuegoPrincipalPage implements OnInit {
           cssClass: 'secondary',
           handler: (blah) => {
             console.log('Cancelar');
+            // actuar-amarillo
+            // dibujar-verde
+            // esas van con revelar
+            // moldear-rojo
+            let navegar = '';
+            console.log(this.etiqueta);
+            if (this.etiqueta === 'Amarillo' || this.etiqueta === 'Verde' || this.etiqueta === 'Rojo' ){
+              navegar = '/view-target';
+            }
+            if (this.etiqueta === 'Morado') {
+              navegar = '/view-purple';
+            }
+            if (this.etiqueta === 'Azul') {
+              navegar = '/view-without-to-reveal';
+            }
+
+            this.navCtrl.navigateForward(
+              `${navegar}`
+            );
           },
         },
       ],
