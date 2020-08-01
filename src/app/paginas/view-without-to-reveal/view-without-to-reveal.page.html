@@ -13,6 +13,7 @@
     margin:auto"></ion-img>
 
     <ion-card>
+    
         <ion-item lines="none">
             <ion-icon name="game-controller" slot="start"></ion-icon>
             <ion-label>
@@ -32,14 +33,49 @@
 
         </ion-item>
 
-        <ion-card-content [class]="fuente_base">
-            Adivina la Palabra
-        </ion-card-content>
-        <ion-card-content [class]="fuente_base"> llocilloPa </ion-card-content>
+        <ion-item *ngIf="ocultar" >
 
-        <ion-card-content [class]="fuente_base"> Respuesta: Panecillo </ion-card-content>
+            <ion-list >
+                   
+            
+            <ion-item >
+              {{cards.card}}          
+            </ion-item>
+            <ion-item >
+                {{cards.descripcion}}          
+              </ion-item>
+              <ion-item >
+                {{cards.pregunta}}          
+              </ion-item> <ion-item >
+                {{cards.pista}}          
+              </ion-item>
+              <ion-item >
+                {{cards.respuesta}}          
+              </ion-item>
+            <!-- [(ngModel)]="informacion.equipo1" -->
+                
+<!--             
+            <ion-card-content [class]="fuente_base">
 
-    </ion-card>
+           
+            </ion-card-content><ion-button expand="full" shape="round" [routerLink]="[ '/administrador']" [class]="fuente_base">{{cards.preguntar}} </ion-button>
+            
+             -->
+
+            
+            <ion-item [color]="fondo_base">
+                <ion-label  position='floating' [class]="fuente_base">Ingrese la respuesta</ion-label>
+                <ion-input type='text' [(ngModel)]="res"  name="res" #res1 required></ion-input>
+
+            </ion-item>
+
+            <ion-item><ion-button  expand="full" shape="round"  [class]="fuente_base" (click)="comprobar(res1)">Comprobar </ion-button></ion-item>
+        </ion-list>
+
+
+
+        </ion-item>
+            </ion-card>
 
 
 

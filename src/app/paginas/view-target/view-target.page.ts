@@ -35,16 +35,14 @@ export class ViewTargetPage implements OnInit {
   public ocultar = false;
 
   startTimer(duration: number){
-    
-
-
-    
-     
-      
-    
-    this.state = 'start';
+  
+   
+    this.storage.get('tiempos').then((val) => {
+      parseInt(val);
+      console.log( val); 
+      this.state = 'start';
     clearInterval(this.interval);
-    this.timer = duration * 60;
+    this.timer = duration * val;
     if(this.timer >0){
       
       this.ocultar = !this.ocultar;
@@ -55,15 +53,11 @@ export class ViewTargetPage implements OnInit {
         
       });
     }
-    console.log(this.timer)
     this.updateTimeValue;
     this.interval =  setInterval( () =>{
       this.updateTimeValue();
-    }, 1000)
-    
-   
-    
-   
+    }, 1000)   
+    });
   }
 
   async stopTimer(){
