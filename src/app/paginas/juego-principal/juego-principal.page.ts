@@ -9,6 +9,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./juego-principal.page.scss'],
 })
 export class JuegoPrincipalPage implements OnInit {
+  arreglocartas=[]
 
 
   // tslint:disable-next-line: variable-name
@@ -168,6 +169,7 @@ export class JuegoPrincipalPage implements OnInit {
             // moldear-rojo
             let navegar = '';
             console.log(this.etiqueta);
+            this.ver()
             if (this.etiqueta === 'Amarillo' || this.etiqueta === 'Verde' || this.etiqueta === 'Rojo' ){
               navegar = '/view-target';
             }
@@ -188,7 +190,25 @@ export class JuegoPrincipalPage implements OnInit {
 
     await alert.present();
   }
+  ver(){
+    this.storage.get('datosg.json').then((val) => {
+      //console.log( val.card);
+      this.arreglocartas=val;
+      console.log(this.arreglocartas); 
+      let arreglocolor=[];
+      for (let index = 0; index < this.arreglocartas.length; index++) {
+        if (this.arreglocartas[index].card===this.etiqueta) {
+          arreglocolor.push(this.arreglocartas[index]);
+        }
 
+      }
+      console.log(arreglocolor);
+      //this.storage.set('colorCards',arreglocolor);
+      const randomico1 = Math.round(Math.random() * ((arreglocolor.length-1) - 0) + 0);
+      console.log(randomico1);
+      this.storage.set('cardcolor',arreglocolor[randomico1]);
+    });
+  }
   getCamera(){
 
   this.camera.getPicture({

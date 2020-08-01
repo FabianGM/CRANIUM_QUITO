@@ -27,12 +27,16 @@ export class AdministradorPage implements OnInit {
  d=0
   ngOnInit() {
 
-    this.storage.set('datosg.json', this.datos);
-    this.storage.get('datosg.json').then((val) => {
+  
+     this.storage.get('datosg.json').then((val) => {
       console.log( val);
       this.cards=val;
+      if (val==null){
+        this.storage.set('datosg.json', this.datos);
+
+      }
       
-    });
+     });
   }
   cartas=[
     
@@ -60,28 +64,28 @@ export class AdministradorPage implements OnInit {
   ]
 
   datos=[{
-    card:'g',
+    card:'Verde',
     descripcion:'Dibujo',
     pregunta:'Dibuja algo característico de Eugenio Espejo',
     pista:'Un prominente investigador, científico, médico, historiador, escritor, abogado, periodista',
     respuesta:'Un revolucionario de la libertad'
     },
     {
-      card:'r',
+      card:'Rojo',
     descripcion:'Moldear con plastilins',
     pregunta:'Intenta hacer la Cruz del Papa con la plastilina Cranium',
     pista:'Cargo jesus en sus hombros',
     respuesta:'Cruz del Papa'
       },
       {
-        card:'y',
+        card:'Amarillo',
       descripcion:'Actuar',
       pregunta:'Actúa como un soldado en la época colonial de Quito',
       pista:'',
       respuesta:''
         },
         {
-          card:'b',
+          card:'Azul',
         descripcion:'Significado',
         pregunta:'¿Qué significa Quito luz de América? ',
         pista:'',
@@ -144,7 +148,7 @@ export class AdministradorPage implements OnInit {
   public morado = false;
   public amarillo = false;
   onChange(c){
-    if(c=='r'){
+    if(c=='Rojo'){
       this.data.descripcion='Moldear'
       this.rojo = !this.rojo;
       this.verde = false;
@@ -153,7 +157,7 @@ export class AdministradorPage implements OnInit {
       this.amarillo = false;
     }
 
-    if(c=='g'){
+    if(c=='Verde'){
       this.data.descripcion='Dibujo'
       this.verde = !this.verde;
       this.rojo = false;
@@ -162,7 +166,7 @@ export class AdministradorPage implements OnInit {
       this.amarillo = false;
       console.log(c)
     }
-    if(c=='b'){
+    if(c=='Azul'){
       this.data.descripcion='Significado'
       this.azul = !this.azul;
       this.verde = false;
@@ -171,7 +175,7 @@ export class AdministradorPage implements OnInit {
       this.amarillo = false;
       console.log(c)
     }
-    if(c=='y'){
+    if(c=='Amarillo'){
       this.data.descripcion='Actuar'
       this.amarillo = !this.rojo;
       this.verde = false;
