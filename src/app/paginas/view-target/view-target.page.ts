@@ -12,7 +12,7 @@ import { RangeValueAccessor } from '@angular/forms';
 export class ViewTargetPage implements OnInit {
 
   time: BehaviorSubject<string> = new BehaviorSubject('00:00');
-
+  color = '';
   timer: number;
   interval;
 
@@ -129,14 +129,32 @@ export class ViewTargetPage implements OnInit {
 
   async alertCorrecto(){
     
+    const randomico = Math.round(Math.random() * (4 - 1) + 1);
+    // console.log('VALOR:', randomico);
+
+    if (randomico === 1 ){ // 1 SERÁ PARA EL COLOR VERDE
+      this.color = './assets/icon/verde.jpg';
     
+    }
+    if (randomico === 2){ // 2 SERÁ PARA EL COLOR AZUL
+      this.color = './assets/icon/azul.png';
+  
+    }
+    if (randomico === 3){ // 3 SERÁ PARA EL COLOR AMARILLO
+      this.color = './assets/icon/amarillo.png';
+    
+    }
+    if (randomico === 4){ // 4 SERÁ PARA EL COLOR ROJO
+      this.color = './assets/icon/rojo.png';
+      
+    }
     
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
       header: 'Ganador !!!',
       subHeader: 'Sigue por el camino ',
       message: ` </ion-item>
-      <ion-img src="./assets/icon/verde.jpg">
+      <ion-img src=${this.color}>
       </ion-img>`,
       buttons: ['Listo']
     });

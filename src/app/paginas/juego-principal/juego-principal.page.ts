@@ -9,7 +9,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./juego-principal.page.scss'],
 })
 export class JuegoPrincipalPage implements OnInit {
-  arreglocartas=[]
+  arreglocartas = [];
 
   // tslint:disable-next-line: variable-name
   mostrar_dado = true;
@@ -46,7 +46,7 @@ export class JuegoPrincipalPage implements OnInit {
       this.storage.get('equipos').then((val) => {
         // console.log('Los equipos son: ', val);
         // this.equipo = val;
-  
+
         const randomico = Math.round(Math.random() * (2 - 1) + 1);
         // console.log(randomico);
         if (randomico === 1){  // 1 pertenece al 1er Equipo
@@ -54,13 +54,13 @@ export class JuegoPrincipalPage implements OnInit {
         }else{
           this.equipo = val.equipo2;
         }
-  
+
         console.log(randomico);
         // console.log(this.equipo['equipo2']);
       });
-      
+
     }, 500);
-    
+
   }
 
   onClick(){
@@ -166,7 +166,7 @@ export class JuegoPrincipalPage implements OnInit {
             // moldear-rojo
             let navegar = '';
             console.log(this.etiqueta);
-            this.ver()
+            this.ver();
             if (this.etiqueta === 'Amarillo' || this.etiqueta === 'Verde' || this.etiqueta === 'Rojo' ){
               navegar = '/view-target';
             }
@@ -189,21 +189,22 @@ export class JuegoPrincipalPage implements OnInit {
   }
   ver(){
     this.storage.get('datosg.json').then((val) => {
-      //console.log( val.card);
-      this.arreglocartas=val;
-      console.log(this.arreglocartas); 
-      let arreglocolor=[];
+      // console.log( val.card);
+      this.arreglocartas = val;
+      console.log(this.arreglocartas);
+      const arreglocolor = [];
+      // tslint:disable-next-line: prefer-for-of
       for (let index = 0; index < this.arreglocartas.length; index++) {
-        if (this.arreglocartas[index].card===this.etiqueta) {
+        if (this.arreglocartas[index].card === this.etiqueta) {
           arreglocolor.push(this.arreglocartas[index]);
         }
 
       }
       console.log(arreglocolor);
-      //this.storage.set('colorCards',arreglocolor);
-      const randomico1 = Math.round(Math.random() * ((arreglocolor.length-1) - 0) + 0);
+      // this.storage.set('colorCards',arreglocolor);
+      const randomico1 = Math.round(Math.random() * ((arreglocolor.length - 1) - 0) + 0);
       console.log(randomico1);
-      this.storage.set('cardcolor',arreglocolor[randomico1]);
+      this.storage.set('cardcolor', arreglocolor[randomico1]);
     });
   }
   getCamera(){
