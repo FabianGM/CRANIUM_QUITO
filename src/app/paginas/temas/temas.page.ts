@@ -28,7 +28,7 @@ export class TemasPage implements OnInit {
     }, 
     tema3: {
       encabezado: 'encabezado2',
-      fuente: 'fuente3',
+      fuente: 'fuente4',
       fondo: 'fondo2',
       pie: 'footer2'
     },
