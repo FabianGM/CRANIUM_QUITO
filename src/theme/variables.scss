@@ -213,6 +213,30 @@
     --ion-color-tint: var(--ion-color-whatsapp-tint) !important;
 }
 
+@font-face {
+    font-family: 'Pangolin', cursive;
+    src: url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap')
+}
+
+* {
+    font-family: 'Pangolin', cursive;
+}
+
+.fuente2 {
+    font-family: 'Roboto Mono', monospace !important;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap')
+}
+
+.fuente3 {
+    font-family: 'Oswald', sans-serif !important;
+    src: url('https://fonts.googleapis.com/css2?family=Oswald&display=swap')
+}
+
+.fuente4 {
+    font-family: 'Ranchers', cursive !important;
+    src: url('https://fonts.googleapis.com/css2?family=Ranchers&display=swap')
+}
+
 @media (prefers-color-scheme: dark) {
     /*
    * Dark Colors

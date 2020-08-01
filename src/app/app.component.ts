@@ -28,23 +28,14 @@ export class AppComponent {
     redirecTo: '/acerca'
   },
   {
-    icono: 'people-circle-outline',
-    name: 'Equipos',
-    redirecTo: '/equipos'
-  },
-  {
     icono: 'newspaper-outline',
     name: 'Home',
     redirecTo: '/home'
-  },
-  {
-    icono: 'american-football-outline',
-    name: 'Juego Principal',
-    redirecTo: '/juego-principal'
   }
 ];
   fondo_base: string;
   encabezado_base: string;
+  // tslint:disable-next-line: variable-name
   pie_base: string;
   fuente_base: string;
 
@@ -60,7 +51,7 @@ export class AppComponent {
       fuente: 'fuente3',
       fondo: 'fondo1',
       pie: 'footer1'
-    }, 
+    },
     tema3: {
       encabezado: 'encabezado2',
       fuente: 'fuente3',
@@ -111,34 +102,34 @@ export class AppComponent {
   OnChange(event){
     window.location.reload();
     const valor = event.detail.value;
- 
-   if (valor === 'tema1'){
-     console.log(this.encabezado_base)
+
+    if (valor === 'tema1'){
+     console.log(this.encabezado_base);
      this.encabezado_base = this.Temas.tema1.encabezado;
      this.fuente_base = this.Temas.tema1.fuente;
      this.fondo_base = this.Temas.tema1.fondo;
      this.pie_base = this.Temas.tema1.pie;
    }
- 
-   if (valor === 'tema2'){
+
+    if (valor === 'tema2'){
      this.encabezado_base = this.Temas.tema2.encabezado;
      this.fuente_base = this.Temas.tema2.fuente;
      this.fondo_base = this.Temas.tema2.fondo;
      this.pie_base = this.Temas.tema2.pie;
    }
 
-   if (valor === 'tema3'){
+    if (valor === 'tema3'){
      this.encabezado_base = this.Temas.tema3.encabezado;
      this.fuente_base = this.Temas.tema3.fuente;
      this.fondo_base = this.Temas.tema3.fondo;
      this.pie_base = this.Temas.tema3.pie;
    }
 
-   this.almacenar();
-   
+    this.almacenar();
+
    }
-   
-  
+
+
 }
 
 // tslint:disable-next-line: class-name
