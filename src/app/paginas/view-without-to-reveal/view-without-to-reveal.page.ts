@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-view-without-to-reveal',
@@ -21,7 +22,7 @@ export class ViewWithoutToRevealPage implements OnInit {
   pie_base: string;
   fuente_base: string;
 
-  constructor(public alertCtrl: AlertController) { 
+  constructor(public alertCtrl: AlertController, private storage: Storage) { 
     this.fondo_base = localStorage.getItem('fondo');
     this.encabezado_base = localStorage.getItem('encabezado');
     this.pie_base = localStorage.getItem('pie');
@@ -29,13 +30,17 @@ export class ViewWithoutToRevealPage implements OnInit {
   }
 
   startTimer(duration: number){
-    this.state = 'start';
+    this.storage.get('tiempos').then((val) => {
+      parseInt(val);
+      console.log( val); 
+      this.state = 'start';
     clearInterval(this.interval);
-    this.timer = duration * 60;
+    this.timer = duration * val;
     this.updateTimeValue;
     this.interval =  setInterval( () =>{
       this.updateTimeValue();
-    }, 1000)
+    }, 1000)   
+    });
   }
 
   async stopTimer(){

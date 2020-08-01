@@ -67,8 +67,15 @@ datos=[{
         }] ;
 
 ngOnInit() {
-
-  
+  this.storage.get('tiempos').then((val) => {
+    console.log( val);
+    this.cards=val;
+    if (val==null){
+      this.storage.set('tiempos', 60);
+    }
+    
+   });
+   
   this.storage.get('datosg.json').then((val) => {
    console.log( val);
    this.cards=val;

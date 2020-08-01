@@ -133,7 +133,6 @@ export class AdministradorPage implements OnInit {
   ver(){
     this.storage.get('datosg.json').then((val) => {
       console.log( val);
-      
     });
   }
 

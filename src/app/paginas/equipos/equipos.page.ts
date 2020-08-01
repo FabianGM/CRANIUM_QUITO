@@ -8,9 +8,6 @@ import { Storage } from '@ionic/storage';
 })
 export class EquiposPage implements OnInit {
 
-
-
-
   fondo_base: string;
   encabezado_base: string;
   pie_base: string;

@@ -3,6 +3,7 @@ import { AlertController, NavController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { DefaultUrlSerializer } from '@angular/router';
 import { RangeValueAccessor } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-view-target',
@@ -11,6 +12,7 @@ import { RangeValueAccessor } from '@angular/forms';
 })
 export class ViewTargetPage implements OnInit {
 
+  
   time: BehaviorSubject<string> = new BehaviorSubject('00:00');
   color = '';
   timer: number;
@@ -23,7 +25,7 @@ export class ViewTargetPage implements OnInit {
   pie_base: string;
   fuente_base: string;
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController) { 
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private storage: Storage) { 
     this.fondo_base = localStorage.getItem('fondo');
     this.encabezado_base = localStorage.getItem('encabezado');
     this.pie_base = localStorage.getItem('pie');
@@ -31,13 +33,17 @@ export class ViewTargetPage implements OnInit {
   }
 
   startTimer(duration: number){
-    this.state = 'start';
+    this.storage.get('tiempos').then((val) => {
+      parseInt(val);
+      console.log( val); 
+      this.state = 'start';
     clearInterval(this.interval);
-    this.timer = duration * 60;
+    this.timer = duration * val;
     this.updateTimeValue;
     this.interval =  setInterval( () =>{
       this.updateTimeValue();
-    }, 1000)
+    }, 1000)   
+    });
   }
 
   async stopTimer(){
