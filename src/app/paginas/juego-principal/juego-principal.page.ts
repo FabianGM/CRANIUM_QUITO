@@ -101,13 +101,7 @@ export class JuegoPrincipalPage implements OnInit {
 
     await alert.present();
 
-
-
-
   }
-
-
-
   async alertCard() {
 
     const randomico = Math.round(Math.random() * (5 - 1) + 1);
