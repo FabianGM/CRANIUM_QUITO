@@ -6,7 +6,7 @@
 <ion-header>
 
     <ion-toolbar [color]="fondo_base">
-        <ion-title>Insertar una card</ion-title>
+        <ion-title [class]="fuente_base">Insertar una card</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -19,15 +19,15 @@
 
 
     <ion-item [color]="fondo_base">
-        <ion-label>Seleccionar Card</ion-label>
+        <ion-label [class]="fuente_base">Seleccionar Card</ion-label>
 
-        <ion-select interface="popover" #C (ionChange)="onChange(C.value)">
+        <ion-select [(ngModel)]="data.card" interface="popover" #C (ionChange)="onChange(C.value)" [class]="fuente_base">
 
-            <ion-select-option value="r">Rojo </ion-select-option>
-            <ion-select-option value="g">Verde</ion-select-option>
-            <ion-select-option value="b">Azul</ion-select-option>
+            <ion-select-option value="Rojo">Rojo </ion-select-option>
+            <ion-select-option value="Verde">Verde</ion-select-option>
+            <ion-select-option value="Azul">Azul</ion-select-option>
             <ion-select-option value="y">Amarillo</ion-select-option>
-            <ion-select-option value="m">Morado</ion-select-option>
+            <ion-select-option value="p">Morado</ion-select-option>
         </ion-select>
         <ion-item *ngIf="rojo" color="danger">
             <ion-button expand="full" color="danger"> </ion-button>
@@ -55,25 +55,39 @@
 
 
     <ion-item [color]="fondo_base">
-        <ion-label position="floating">Acertijo</ion-label>
+        <ion-label position="floating" [class]="fuente_base">Descripcion</ion-label>
         <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
+    </ion-item>
+
+    <ion-item [color]="fondo_base">
+        <ion-label position="floating" [class]="fuente_base">Pregunta</ion-label>
+        <ion-input type="text" [(ngModel)]="data.pregunta"></ion-input>
     </ion-item>
 
 
 
     <ion-item [color]="fondo_base">
-        <ion-label position="floating">Palabra Clave</ion-label>
-        <ion-input type="text" name="palabraclave" [(ngModel)]="data.palabraclave"></ion-input>
+        <ion-label position="floating" [class]="fuente_base">Pista</ion-label>
+        <ion-input type="text" name="pista" [(ngModel)]="data.pista"></ion-input>
     </ion-item>
 
-    <ion-item color=[color]="fondo_base">
-        <ion-label position="floating">Respuesta</ion-label>
+    <ion-item [color]="fondo_base">
+        <ion-label position="floating" [class]="fuente_base">Respuesta</ion-label>
         <ion-input type="text" name="respuesta" [(ngModel)]="data.respuesta"></ion-input>
     </ion-item>
 
 
-    <ion-button expand="full" shape="round" (click)="guardar()">
+    <ion-button expand="full" shape="round" (click)="guardar()" [class]="fuente_base">
         Guardar
+    </ion-button>
+
+
+    <ion-button expand="full" shape="round" (click)="ver()" [class]="fuente_base">
+        Ver
+    </ion-button>
+
+    <ion-button expand="full" shape="round" (click)="clear()" [class]="fuente_base">
+        Eliminar
     </ion-button>
 
     <ion-card>

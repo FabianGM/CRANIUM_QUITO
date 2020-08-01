@@ -4,7 +4,7 @@
     <ion-img src="./assets/icon/conf.jpg"></ion-img>
     <ion-item *ngFor="let cp of componentes" [routerLink]="cp.redirecTo" detail [color]="fondo_base">
         <ion-icon slot="start" [name]="cp.icono"></ion-icon>
-        <ion-label>{{cp.name}}</ion-label>
+        <ion-label [class]="fuente_base">{{cp.name}}</ion-label>
     </ion-item>
 </ion-content>
 

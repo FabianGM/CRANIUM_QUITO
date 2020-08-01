@@ -7,6 +7,8 @@
 
 <ion-content [color]="fondo_base" class="ion-padding">
 
+    <h1 style="text-align:right" [class]="fuente_base">{{time | async}}</h1>
+
     <ion-img src="./assets/icon/carita_feliz.gif" style="width: 60%; display:block;
     margin:auto"></ion-img>
 
@@ -14,27 +16,28 @@
         <ion-item lines="none">
             <ion-icon name="game-controller" slot="start"></ion-icon>
             <ion-label>
-                <h2>Actuación</h2>
+                <h2 [class]="fuente_base">Actuación</h2>
             </ion-label>
             <ion-label>
-                <h2>Equipo: Leones</h2>
+                <h2 [class]="fuente_base">Equipo: Leones</h2>
             </ion-label>
 
         </ion-item>
         <ion-item lines="none">
 
-            <ion-button (click)="presentAlert()" shape="round" fill="outline" slot="start">Empezar</ion-button>
+            <ion-button *ngIf="state === 'stop'" (click)="startTimer(1)" shape="round" fill="outline" slot="start">Empezar</ion-button>
+            <ion-button *ngIf="state === 'start'" (click)="stopTimer()" shape="round" fill="outline" slot="start">Detener</ion-button>
 
 
 
         </ion-item>
 
-        <ion-card-content>
+        <ion-card-content [class]="fuente_base">
             Adivina la Palabra
         </ion-card-content>
-        <ion-card-content> llocilloPa </ion-card-content>
+        <ion-card-content [class]="fuente_base"> llocilloPa </ion-card-content>
 
-        <ion-card-content> Respuesta: Panecillo </ion-card-content>
+        <ion-card-content [class]="fuente_base"> Respuesta: Panecillo </ion-card-content>
 
     </ion-card>
 

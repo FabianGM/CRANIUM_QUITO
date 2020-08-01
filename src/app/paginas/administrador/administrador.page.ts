@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalInfoPage } from '../modal-info/modal-info.page';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-administrador',
@@ -13,13 +14,15 @@ export class AdministradorPage implements OnInit {
   pie_base: string;
   fuente_base: string;
 
-  constructor(private modalCtrl:ModalController) { 
+  constructor(private modalCtrl:ModalController,private storage: Storage) { 
     this.fondo_base = localStorage.getItem('fondo');
     this.encabezado_base = localStorage.getItem('encabezado');
     this.pie_base = localStorage.getItem('pie');
     this.fuente_base = localStorage.getItem('fuente');
   }
-
+datos=[] ;
+ data1:any
+ d=0
   ngOnInit() {
   }
   cartas=[
@@ -47,13 +50,50 @@ export class AdministradorPage implements OnInit {
   
   ]
   data={
+    card:'',
     descripcion:'',
-    palabraclave:'',
+    pregunta:'',
+    pista:'',
     respuesta:''
   }
+  
 
   guardar(){
-    console.log(this.data)
+     //this.storage.set('datosg.json', this.cartas);
+    this. data1={
+      card:this.data.card,
+      descripcion:this.data.descripcion,
+      pregunta:this.data.pregunta,
+      
+      pista:this.data.pista,
+      respuesta:this.data.respuesta
+    }
+    
+    //console.log(this.data)
+    
+
+   
+  
+       this.datos.push(this.data1);
+    
+    this.storage.set('datosg.json', this.datos);
+    
+   
+   
+  // Or to get a key/value pair
+
+   
+  }
+
+  ver(){
+    this.storage.get('datosg.json').then((val) => {
+      console.log( val);
+      
+    });
+  }
+
+  clear() {
+    this.storage.clear();
   }
 
   val = 0;
@@ -63,7 +103,7 @@ export class AdministradorPage implements OnInit {
   public morado = false;
   public amarillo = false;
   onChange(c){
-    if(c=='r'){
+    if(c=='Rojo'){
       this.rojo = !this.rojo;
       this.verde = false;
       this.azul = false;
@@ -71,7 +111,7 @@ export class AdministradorPage implements OnInit {
       this.amarillo = false;
     }
 
-    if(c=='g'){
+    if(c=='Verde'){
       this.verde = !this.verde;
       this.rojo = false;
       this.azul = false;
@@ -79,7 +119,7 @@ export class AdministradorPage implements OnInit {
       this.amarillo = false;
       console.log(c)
     }
-    if(c=='b'){
+    if(c=='Azul'){
       this.azul = !this.azul;
       this.verde = false;
       this.rojo = false;
@@ -94,7 +134,7 @@ export class AdministradorPage implements OnInit {
       this.morado = false;
       this.rojo = false;
     }
-    if(c=='m'){
+    if(c=='p'){
       this.morado = !this.morado;
       this.verde = false;
       this.azul = false;

@@ -44,7 +44,7 @@ export class TemasPage implements OnInit {
    async presentToast(message: string) {
     const toast = await this.toastController.create({
       message,
-      duration: 2000
+      duration: 3000
     });
     toast.present();
   }

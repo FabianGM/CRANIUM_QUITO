@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar [color]="encabezado_base">
-        <ion-title class="ion-text-center"> CRANIUM </ion-title>
+        <ion-title class="ion-text-center" [class]="fuente_base"> CRANIUM </ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -33,7 +33,7 @@
         <ion-card *ngIf="mostrar_dado" (click)="onClick()" [color]="fondo_base" class="card">
 
             <ion-card-header>
-                <h3 *ngIf="mostrar_texto">
+                <h3 *ngIf="mostrar_texto" [class]="fuente_base">
                     PRESIONAME!!
                 </h3>
             </ion-card-header>
@@ -45,8 +45,8 @@
 
     <div>
 
-        <ion-title>Turno:</ion-title>
-        <ion-title>Equipo Leones</ion-title>
+        <ion-title [class]="fuente_base">Turno Equipo:</ion-title>
+        <ion-title [class]="fuente_base">{{equipo}}</ion-title>
     </div>
 
 
@@ -64,7 +64,7 @@
             <ion-button *ngFor="let item of [1,1,1,1]"></ion-button>
             <ion-button (click)="presentAlert()">
                 <ion-icon name="trophy-outline" slot="start"></ion-icon>
-                <h4>
+                <h4 [class]="fuente_base">
                     GANADOR !!!!
                 </h4>
             </ion-button>
