@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { DefaultUrlSerializer } from '@angular/router';
 import { RangeValueAccessor } from '@angular/forms';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-view-target',
@@ -10,11 +11,12 @@ import { RangeValueAccessor } from '@angular/forms';
   styleUrls: ['./view-target.page.scss'],
 })
 export class ViewTargetPage implements OnInit {
-
+  cards=[]
   time: BehaviorSubject<string> = new BehaviorSubject('00:00');
   color = '';
   timer: number;
   interval;
+  va
 
   state: 'start' | 'stop' = 'stop';
 
@@ -23,21 +25,45 @@ export class ViewTargetPage implements OnInit {
   pie_base: string;
   fuente_base: string;
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController) { 
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private storage: Storage
+    ) { 
     this.fondo_base = localStorage.getItem('fondo');
     this.encabezado_base = localStorage.getItem('encabezado');
     this.pie_base = localStorage.getItem('pie');
     this.fuente_base = localStorage.getItem('fuente');
   }
+  public ocultar = false;
 
   startTimer(duration: number){
+    
+
+
+    
+     
+      
+    
     this.state = 'start';
     clearInterval(this.interval);
     this.timer = duration * 60;
+    if(this.timer >0){
+      
+      this.ocultar = !this.ocultar;
+      this.storage.get('cardcolor').then((val) => {
+        console.log( val);
+        this.cards=val;
+      
+        
+      });
+    }
+    console.log(this.timer)
     this.updateTimeValue;
     this.interval =  setInterval( () =>{
       this.updateTimeValue();
     }, 1000)
+    
+   
+    
+   
   }
 
   async stopTimer(){
@@ -96,11 +122,13 @@ export class ViewTargetPage implements OnInit {
   }
 
 
-  async presentAlert1() {
+  async presentAlert1(c) {
+
+  
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
       header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      message: `Respuesta <strong>${c}</strong>!!!`,
       buttons: [
         {
           text: 'Incorrecto',
@@ -161,4 +189,6 @@ export class ViewTargetPage implements OnInit {
 
     await alert.present();
   }
+
+  
 }
