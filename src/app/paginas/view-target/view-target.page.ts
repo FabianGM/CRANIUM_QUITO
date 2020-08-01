@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
+import { AlertController, NavController, ToastController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { DefaultUrlSerializer } from '@angular/router';
 import { RangeValueAccessor } from '@angular/forms';
@@ -25,7 +25,7 @@ export class ViewTargetPage implements OnInit {
   pie_base: string;
   fuente_base: string;
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private storage: Storage
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private storage: Storage,public toastController: ToastController
     ) { 
     this.fondo_base = localStorage.getItem('fondo');
     this.encabezado_base = localStorage.getItem('encabezado');
@@ -64,6 +64,7 @@ export class ViewTargetPage implements OnInit {
     clearInterval(this.interval);
     this.time.next('00:00');
     this.state = 'stop';
+    
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
       header: 'Perdiste',
@@ -85,6 +86,15 @@ export class ViewTargetPage implements OnInit {
     this.time.next(text);
 
     --this.timer;
+
+    console.log(this.timer);
+    if (this.timer===0){
+      console.log("incorrect ")
+      this.navCtrl.navigateForward(
+        `/juego-principal`
+      );
+      this.presentToastIncorrecto();
+    }
 
     if (this.timer < 0){
       this.startTimer(0);
@@ -121,14 +131,16 @@ export class ViewTargetPage implements OnInit {
   
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
-      header: 'Confirm!',
-      message: `Respuesta <strong>${c}</strong>!!!`,
+      header: 'Respuesta',
+      message: `<strong>${c}</strong>`,
       buttons: [
         {
           text: 'Incorrecto',
           role: 'cancel',
           cssClass: 'secondary',
+    
           handler: (blah) => {
+            this.presentToastIncorrecto();
             this.navCtrl.navigateForward(
               `/juego-principal`
             );
@@ -185,4 +197,15 @@ export class ViewTargetPage implements OnInit {
   }
 
   
+  async presentToastIncorrecto() {
+    const toast = await this.toastController.create({
+      message: 'Perdiste suerte en el próximo turno',
+      duration: 3000
+    });
+    toast.present();
+  }
+
+
 }
+
+

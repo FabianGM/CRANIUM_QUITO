@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController, ToastController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { Storage } from '@ionic/storage';
 
@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage';
 export class ViewWithoutToRevealPage implements OnInit {
 
   time: BehaviorSubject<string> = new BehaviorSubject('00:00');
-
+  color = '';
   timer: number;
   interval;
 
@@ -23,7 +23,7 @@ export class ViewWithoutToRevealPage implements OnInit {
   fuente_base: string;
   res:string;
 
-  constructor(public alertCtrl: AlertController, private storage: Storage) { 
+  constructor(public alertCtrl: AlertController, private storage: Storage,public navCtrl: NavController,public toastController: ToastController) { 
     this.fondo_base = localStorage.getItem('fondo');
     this.encabezado_base = localStorage.getItem('encabezado');
     this.pie_base = localStorage.getItem('pie');
@@ -47,7 +47,9 @@ export class ViewWithoutToRevealPage implements OnInit {
         
       });
     }
-    this.updateTimeValue;
+   
+
+    this.updateTimeValue();
     this.interval =  setInterval( () =>{
       this.updateTimeValue();
     }, 1000)   
@@ -58,6 +60,7 @@ export class ViewWithoutToRevealPage implements OnInit {
     clearInterval(this.interval);
     this.time.next('00:00');
     this.state = 'stop';
+
   }
 
   updateTimeValue(){
@@ -71,6 +74,15 @@ export class ViewWithoutToRevealPage implements OnInit {
     this.time.next(text);
 
     --this.timer;
+
+    console.log(this.timer);
+    if (this.timer===0){
+      console.log("incorrect ")
+      this.navCtrl.navigateForward(
+        `/juego-principal`
+      );
+      this.presentToastIncorrecto();
+    }
 
     if (this.timer < 0){
       this.startTimer(0);
@@ -112,12 +124,67 @@ export class ViewWithoutToRevealPage implements OnInit {
       console.log("holo2 ", val.respuesta)
       if(val.respuesta==r.value){
         console.log("correct ")
+        if(this.timer >0){
+          this.alertCorrecto();
+          this.navCtrl.navigateForward(
+            `/juego-principal`
+          );
+        }
       }else{
+     
         console.log("incorrect ")
+        this.navCtrl.navigateForward(
+          `/juego-principal`
+        );
+        this.presentToastIncorrecto(); 
       }
     
       
     });
+  }
+
+
+
+  async alertCorrecto(){
+    
+    const randomico = Math.round(Math.random() * (4 - 1) + 1);
+    // console.log('VALOR:', randomico);
+
+    if (randomico === 1 ){ // 1 SERÁ PARA EL COLOR VERDE
+      this.color = './assets/icon/verde.jpg';
+    
+    }
+    if (randomico === 2){ // 2 SERÁ PARA EL COLOR AZUL
+      this.color = './assets/icon/azul.png';
+  
+    }
+    if (randomico === 3){ // 3 SERÁ PARA EL COLOR AMARILLO
+      this.color = './assets/icon/amarillo.png';
+    
+    }
+    if (randomico === 4){ // 4 SERÁ PARA EL COLOR ROJO
+      this.color = './assets/icon/rojo.png';
+      
+    }
+    
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Ganador !!!',
+      subHeader: 'Sigue por el camino ',
+      message: ` </ion-item>
+      <ion-img src=${this.color}>
+      </ion-img>`,
+      buttons: ['Listo']
+    });
+
+    await alert.present();
+  }
+  async presentToastIncorrecto() {
+    const toast = await this.toastController.create({
+      message: 'Perdiste suerte en el próximo turno',
+      duration: 3000
+    });
+    toast.present();
   }
 
 }
