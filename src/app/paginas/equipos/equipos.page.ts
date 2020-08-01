@@ -30,9 +30,9 @@ informacion = {
   ngOnInit() {
   }
 
-  registroDatos(){
+  async registroDatos(){
     console.log(this.informacion);
-    this.storage.set('equipos', this.informacion);
+    await this.storage.set('equipos', this.informacion);
   }
 
 }

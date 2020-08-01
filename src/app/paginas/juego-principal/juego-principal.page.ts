@@ -9,8 +9,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./juego-principal.page.scss'],
 })
 export class JuegoPrincipalPage implements OnInit {
-
-  arreglocartas=[];
+  arreglocartas=[]
 
   // tslint:disable-next-line: variable-name
   mostrar_dado = true;
@@ -43,21 +42,25 @@ export class JuegoPrincipalPage implements OnInit {
               }
 
   ngOnInit() {
-    this.storage.get('equipos').then((val) => {
-      // console.log('Los equipos son: ', val);
-      // this.equipo = val;
-
-      const randomico = Math.round(Math.random() * (2 - 1) + 1);
-      // console.log(randomico);
-      if (randomico === 1){  // 1 pertenece al 1er Equipo
-        this.equipo = val.equipo1;
-      }else{
-        this.equipo = val.equipo2;
-      }
-
-      // console.log(randomico);
-      // console.log(this.equipo['equipo2']);
-    });
+    setTimeout(() => {
+      this.storage.get('equipos').then((val) => {
+        // console.log('Los equipos son: ', val);
+        // this.equipo = val;
+  
+        const randomico = Math.round(Math.random() * (2 - 1) + 1);
+        // console.log(randomico);
+        if (randomico === 1){  // 1 pertenece al 1er Equipo
+          this.equipo = val.equipo1;
+        }else{
+          this.equipo = val.equipo2;
+        }
+  
+        console.log(randomico);
+        // console.log(this.equipo['equipo2']);
+      });
+      
+    }, 500);
+    
   }
 
   onClick(){
@@ -169,7 +172,7 @@ export class JuegoPrincipalPage implements OnInit {
             // moldear-rojo
             let navegar = '';
             console.log(this.etiqueta);
-            this.ver();
+            this.ver()
             if (this.etiqueta === 'Amarillo' || this.etiqueta === 'Verde' || this.etiqueta === 'Rojo' ){
               navegar = '/view-target';
             }
@@ -190,23 +193,25 @@ export class JuegoPrincipalPage implements OnInit {
 
     await alert.present();
   }
-
   ver(){
     this.storage.get('datosg.json').then((val) => {
-      //console.log( val.card);  
-      this.arreglocartas=val;   
+      //console.log( val.card);
+      this.arreglocartas=val;
       console.log(this.arreglocartas); 
       let arreglocolor=[];
       for (let index = 0; index < this.arreglocartas.length; index++) {
         if (this.arreglocartas[index].card===this.etiqueta) {
-          arreglocolor.push(this.arreglocartas[index]);          
+          arreglocolor.push(this.arreglocartas[index]);
         }
-        
+
       }
       console.log(arreglocolor);
+      //this.storage.set('colorCards',arreglocolor);
+      const randomico1 = Math.round(Math.random() * ((arreglocolor.length-1) - 0) + 0);
+      console.log(randomico1);
+      this.storage.set('cardcolor',arreglocolor[randomico1]);
     });
   }
-
   getCamera(){
 
   this.camera.getPicture({

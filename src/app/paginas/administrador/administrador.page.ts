@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ModalInfoPage } from '../modal-info/modal-info.page';
 import { Storage } from '@ionic/storage';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-administrador',
@@ -13,6 +14,7 @@ export class AdministradorPage implements OnInit {
   encabezado_base: string;
   pie_base: string;
   fuente_base: string;
+  cards: Observable<any>;
 
   constructor(private modalCtrl:ModalController,private storage: Storage) { 
     this.fondo_base = localStorage.getItem('fondo');
@@ -20,10 +22,21 @@ export class AdministradorPage implements OnInit {
     this.pie_base = localStorage.getItem('pie');
     this.fuente_base = localStorage.getItem('fuente');
   }
-datos=[] ;
+
  data1:any
  d=0
   ngOnInit() {
+
+  
+     this.storage.get('datosg.json').then((val) => {
+      console.log( val);
+      this.cards=val;
+      if (val==null){
+        this.storage.set('datosg.json', this.datos);
+
+      }
+      
+     });
   }
   cartas=[
     
@@ -49,6 +62,36 @@ datos=[] ;
           }
   
   ]
+
+  datos=[{
+    card:'Verde',
+    descripcion:'Dibujo',
+    pregunta:'Dibuja algo característico de Eugenio Espejo',
+    pista:'Un prominente investigador, científico, médico, historiador, escritor, abogado, periodista',
+    respuesta:'Un revolucionario de la libertad'
+    },
+    {
+      card:'Rojo',
+    descripcion:'Moldear con plastilins',
+    pregunta:'Intenta hacer la Cruz del Papa con la plastilina Cranium',
+    pista:'Cargo jesus en sus hombros',
+    respuesta:'Cruz del Papa'
+      },
+      {
+        card:'Amarillo',
+      descripcion:'Actuar',
+      pregunta:'Actúa como un soldado en la época colonial de Quito',
+      pista:'',
+      respuesta:''
+        },
+        {
+          card:'Azul',
+        descripcion:'Significado',
+        pregunta:'¿Qué significa Quito luz de América? ',
+        pista:'',
+        respuesta:''
+          }] ;
+          
   data={
     card:'',
     descripcion:'',
@@ -56,10 +99,12 @@ datos=[] ;
     pista:'',
     respuesta:''
   }
-  
+ 
 
   guardar(){
+    //this.datos.push(this.cartas)
      //this.storage.set('datosg.json', this.cartas);
+       
     this. data1={
       card:this.data.card,
       descripcion:this.data.descripcion,
@@ -104,6 +149,7 @@ datos=[] ;
   public amarillo = false;
   onChange(c){
     if(c=='Rojo'){
+      this.data.descripcion='Moldear'
       this.rojo = !this.rojo;
       this.verde = false;
       this.azul = false;
@@ -112,6 +158,7 @@ datos=[] ;
     }
 
     if(c=='Verde'){
+      this.data.descripcion='Dibujo'
       this.verde = !this.verde;
       this.rojo = false;
       this.azul = false;
@@ -120,6 +167,7 @@ datos=[] ;
       console.log(c)
     }
     if(c=='Azul'){
+      this.data.descripcion='Significado'
       this.azul = !this.azul;
       this.verde = false;
       this.rojo = false;
@@ -127,20 +175,15 @@ datos=[] ;
       this.amarillo = false;
       console.log(c)
     }
-    if(c=='y'){
+    if(c=='Amarillo'){
+      this.data.descripcion='Actuar'
       this.amarillo = !this.rojo;
       this.verde = false;
       this.azul = false;
       this.morado = false;
       this.rojo = false;
     }
-    if(c=='p'){
-      this.morado = !this.morado;
-      this.verde = false;
-      this.azul = false;
-      this.rojo = false;
-      this.amarillo = false;
-    }
+    
 
 
  
