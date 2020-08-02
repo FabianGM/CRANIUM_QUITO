@@ -63,7 +63,7 @@ datos=[{
       descripcion:'Significado',
       pregunta:'¿Qué significa Quito luz de América? ',
       pista:'',
-      respuesta:''
+      respuesta:'si'
         }] ;
 
 ngOnInit() {

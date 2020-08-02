@@ -27,18 +27,52 @@
 
             <ion-button *ngIf="state === 'stop'" (click)="startTimer(1)" shape="round" fill="outline" slot="start" [class]="fuente_base">Empezar</ion-button>
             <ion-button *ngIf="state === 'start'" (click)="stopTimer()" shape="round" fill="outline" slot="start" [class]="fuente_base">Detener</ion-button>
-            <ion-button (click)="presentAlert1()" shape="round" fill="outline" slot="end" [class]="fuente_base">Revelar </ion-button>
+            <ion-button (click)="presentAlert1(cards.respuesta)" shape="round" fill="outline" slot="end" [class]="fuente_base">Revelar </ion-button>
 
 
         </ion-item>
-        <ion-item lines="none">
+
+        <ion-item *ngIf="ocultar" >
+
+            <ion-list >
+                   
+            
+            <ion-item >
+              {{cards.card}}          
+            </ion-item>
+            <ion-item >
+                {{cards.descripcion}}          
+              </ion-item>
+              <ion-item >
+                {{cards.pregunta}}          
+              </ion-item> <ion-item >
+                {{cards.pista}}          
+              </ion-item>
+              <ion-item >
+                {{cards.respuesta}}          
+              </ion-item>
+            
+
+                
+             
+              </ion-list>
+            
+
+            
+            <ion-card-content [class]="fuente_base">
+
+           
+            </ion-card-content><ion-button expand="full" shape="round" [routerLink]="[ '/administrador']" [class]="fuente_base">{{cards.preguntar}} </ion-button>
+        </ion-item>
+    
+        <!-- <ion-item lines="none">
             <ion-card-content [class]="fuente_base">
 
                 Presione revelar cuando se acabe el tiempo y seleccione si se hizo bien la actividad
             </ion-card-content>
 
 
-        </ion-item>
+        </ion-item> -->
 
         <ion-card-content [class]="fuente_base">
 

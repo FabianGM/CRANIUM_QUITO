@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController, NavController } from '@ionic/angular';
-import { BehaviorSubject } from 'rxjs';
+import { AlertController, NavController, ToastController } from '@ionic/angular';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { DefaultUrlSerializer } from '@angular/router';
 import { RangeValueAccessor } from '@angular/forms';
 import { Storage } from '@ionic/storage';
@@ -11,12 +11,12 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./view-target.page.scss'],
 })
 export class ViewTargetPage implements OnInit {
-
-  
+  cards=[]
   time: BehaviorSubject<string> = new BehaviorSubject('00:00');
   color = '';
   timer: number;
   interval;
+  va
 
   state: 'start' | 'stop' = 'stop';
 
@@ -25,20 +25,34 @@ export class ViewTargetPage implements OnInit {
   pie_base: string;
   fuente_base: string;
 
-  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private storage: Storage) { 
+  constructor(public alertCtrl: AlertController, public navCtrl: NavController, private storage: Storage,public toastController: ToastController
+    ) { 
     this.fondo_base = localStorage.getItem('fondo');
     this.encabezado_base = localStorage.getItem('encabezado');
     this.pie_base = localStorage.getItem('pie');
     this.fuente_base = localStorage.getItem('fuente');
   }
+  public ocultar = false;
 
   startTimer(duration: number){
+  
+   
     this.storage.get('tiempos').then((val) => {
       parseInt(val);
       console.log( val); 
       this.state = 'start';
     clearInterval(this.interval);
     this.timer = duration * val;
+    if(this.timer >0){
+      
+      this.ocultar = !this.ocultar;
+      this.storage.get('cardcolor').then((val) => {
+        console.log( val);
+        this.cards=val;
+      
+        
+      });
+    }
     this.updateTimeValue;
     this.interval =  setInterval( () =>{
       this.updateTimeValue();
@@ -50,6 +64,7 @@ export class ViewTargetPage implements OnInit {
     clearInterval(this.interval);
     this.time.next('00:00');
     this.state = 'stop';
+    
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
       header: 'Perdiste',
@@ -58,6 +73,12 @@ export class ViewTargetPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  detener(){
+    clearInterval(this.interval);
+    this.time.next('00:00');
+    this.state = 'stop';
   }
 
   updateTimeValue(){
@@ -71,6 +92,17 @@ export class ViewTargetPage implements OnInit {
     this.time.next(text);
 
     --this.timer;
+
+    console.log(this.timer);
+    if (this.timer===0){
+      console.log("incorrect ")
+      this.navCtrl.navigateForward(
+        `/juego-principal`
+      );
+      this.presentToastIncorrecto();
+      this.detener();
+    }
+
     if (this.timer < 0){
       this.startTimer(0);
     }
@@ -101,17 +133,21 @@ export class ViewTargetPage implements OnInit {
   }
 
 
-  async presentAlert1() {
+  async presentAlert1(c) {
+
+  
     const alert = await this.alertCtrl.create({
       cssClass: 'my-custom-class',
-      header: 'Confirm!',
-      message: 'Message <strong>text</strong>!!!',
+      header: 'Respuesta',
+      message: `<strong>${c}</strong>`,
       buttons: [
         {
           text: 'Incorrecto',
           role: 'cancel',
           cssClass: 'secondary',
+    
           handler: (blah) => {
+            this.presentToastIncorrecto();
             this.navCtrl.navigateForward(
               `/juego-principal`
             );
@@ -166,4 +202,17 @@ export class ViewTargetPage implements OnInit {
 
     await alert.present();
   }
+
+  
+  async presentToastIncorrecto() {
+    const toast = await this.toastController.create({
+      message: 'Perdiste suerte en el próximo turno',
+      duration: 3000
+    });
+    toast.present();
+  }
+
+
 }
+
+

@@ -79,7 +79,7 @@ export class JuegoPrincipalPage implements OnInit {
       <ion-list>
           <ion-list-header>
             <ion-label>
-             ¿GANADOR EQUIPO LEONES?
+            ¿Ganador equipo ${this.equipo}?
             </ion-label>
           </ion-list-header>
           <ion-item>
