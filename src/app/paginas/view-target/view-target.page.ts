@@ -71,7 +71,6 @@ export class ViewTargetPage implements OnInit {
     this.time.next(text);
 
     --this.timer;
-
     if (this.timer < 0){
       this.startTimer(0);
     }
