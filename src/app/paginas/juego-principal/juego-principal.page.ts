@@ -15,7 +15,7 @@ export class JuegoPrincipalPage implements OnInit {
   mostrar_dado = true;
   // tslint:disable-next-line: variable-name
   mostrar_texto = true;
-  src = './assets/icon/dado.jpeg';
+  src = './assets/icon/dado.jpg';
 
 
   equipo = [];
@@ -64,6 +64,7 @@ export class JuegoPrincipalPage implements OnInit {
   }
 
   onClick(){
+   
     this.mostrar_texto = false;
     this.src = './assets/icon/dado-color.gif';
     this.alertCard();
@@ -79,7 +80,7 @@ export class JuegoPrincipalPage implements OnInit {
       <ion-list>
           <ion-list-header>
             <ion-label>
-             ¿GANADOR EQUIPO LEONES?
+             ¿Ganador equipo ${this.equipo}?
             </ion-label>
           </ion-list-header>
           <ion-item>
