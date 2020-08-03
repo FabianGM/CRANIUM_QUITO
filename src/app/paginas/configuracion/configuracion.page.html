@@ -1,14 +1,19 @@
 <app-header titulo="Configuración"></app-header>
 
 <ion-content [color]="fondo_base">
-    <ion-img src="./assets/icon/conf.jpg"></ion-img>
-    <ion-item *ngFor="let cp of componentes" [routerLink]="cp.redirecTo" detail [color]="fondo_base">
-        <ion-icon slot="start" [name]="cp.icono"></ion-icon>
-        <ion-label [class]="fuente_base">{{cp.name}}</ion-label>
+    <div style="margin: 0 auto;">
+        <ion-tab-button>
+            <ion-img src="./assets/icon/conf.jpg" style="width: 70%;"></ion-img>
+        </ion-tab-button>
+    </div>
+
+    <ion-item *ngFor=" let cp of componentes " [routerLink]="cp.redirecTo " detail [color]="fondo_base ">
+        <ion-icon slot="start " [name]="cp.icono "></ion-icon>
+        <ion-label [class]="fuente_base ">{{cp.name}}</ion-label>
     </ion-item>
 </ion-content>
 
 <ion-footer>
-    <ion-toolbar [color]="encabezado_base">
+    <ion-toolbar [color]="encabezado_base ">
     </ion-toolbar>
 </ion-footer>

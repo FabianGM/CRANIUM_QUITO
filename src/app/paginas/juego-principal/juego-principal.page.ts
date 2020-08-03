@@ -15,7 +15,7 @@ export class JuegoPrincipalPage implements OnInit {
   mostrar_dado = true;
   // tslint:disable-next-line: variable-name
   mostrar_texto = true;
-  src = './assets/icon/dado.jpeg';
+  src = './assets/icon/dado.png';
 
 
   equipo = [];
