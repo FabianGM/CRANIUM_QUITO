@@ -22,7 +22,7 @@ export class JuegoPrincipalPage implements OnInit {
   color = '';
   etiqueta = '';
 
-
+  contador = 0;
   // tslint:disable-next-line: variable-name
   fondo_base: string;
   // tslint:disable-next-line: variable-name
@@ -39,7 +39,20 @@ export class JuegoPrincipalPage implements OnInit {
                 this.encabezado_base = localStorage.getItem('encabezado');
                 this.pie_base = localStorage.getItem('pie');
                 this.fuente_base = localStorage.getItem('fuente');
+
+
+
               }
+
+  async validar(){
+    await this.storage.get('equipo').then((val) => {
+
+      this.equipo = val;
+      console.log('AAA', val);
+    });
+
+  }
+
 
   ngOnInit() {
     setTimeout(() => {
@@ -55,7 +68,8 @@ export class JuegoPrincipalPage implements OnInit {
           this.equipo = val.equipo2;
         }
 
-        console.log(randomico);
+
+        this.storage.set('equipo', this.equipo);
         // console.log(this.equipo['equipo2']);
       });
 
@@ -64,10 +78,15 @@ export class JuegoPrincipalPage implements OnInit {
   }
 
   onClick(){
-   
+
+
+
     this.mostrar_texto = false;
     this.src = './assets/icon/dado-color.gif';
     this.alertCard();
+
+
+
 
   }
 
@@ -166,8 +185,18 @@ export class JuegoPrincipalPage implements OnInit {
             // esas van con revelar
             // moldear-rojo
             let navegar = '';
-            console.log(this.etiqueta);
+
             this.ver();
+            this.storage.set('equipo', this.equipo);
+            this.storage.get('equipos').then((val ) => {
+              if (val.equipo1 === this.equipo){
+                  this.equipo = val.equipo2;
+               }else{
+                this.equipo = val.equipo1;
+             }
+
+
+  });
             if (this.etiqueta === 'Amarillo' || this.etiqueta === 'Verde' || this.etiqueta === 'Rojo' ){
               navegar = '/view-target';
             }
@@ -177,6 +206,10 @@ export class JuegoPrincipalPage implements OnInit {
             if (this.etiqueta === 'Azul') {
               navegar = '/view-without-to-reveal';
             }
+
+
+
+
 
             this.navCtrl.navigateForward(
               `${navegar}`
