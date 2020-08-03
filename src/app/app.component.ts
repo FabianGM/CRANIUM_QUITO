@@ -14,7 +14,7 @@ export class AppComponent {
   componentes: componentes[] = [
     {
     icono: 'settings-outline',
-    name: 'Configuracion',
+    name: 'Configuración',
     redirecTo: '/configuracion'
   },
   {

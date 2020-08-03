@@ -88,7 +88,7 @@ export class ViewWithoutToRevealPage implements OnInit {
     --this.timer;
 
    // console.log(this.timer);
-    if (this.timer === 0){
+    if (this.timer === 1){
     //  console.log("incorrect ")
       this.navCtrl.navigateForward(
         `/juego-principal`

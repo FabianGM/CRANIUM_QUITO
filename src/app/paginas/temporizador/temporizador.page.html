@@ -1,7 +1,11 @@
 <app-header titulo="Temporizador"></app-header>
 
 <ion-content [color]="fondo_base">
-    <ion-img src="./assets/icon/t1.jpg"></ion-img>
+    <div style="margin: 0 auto;">
+        <ion-tab-button>
+            <ion-img src="./assets/icon/t1.jpg" style="width: 70%;"></ion-img>
+        </ion-tab-button>
+    </div>
     <ion-item [color]="fondo_base">
         <ion-range (ionChange)="cambioRango($event)" min="60" max="240" pin="true" color="dark">
             <ion-label slot="start">60</ion-label>
