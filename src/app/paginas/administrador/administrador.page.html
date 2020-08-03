@@ -21,9 +21,9 @@
     <ion-item [color]="fondo_base">
         <ion-label [class]="fuente_base">Seleccionar Card</ion-label>
 
-        <ion-select [(ngModel)]="data.card" interface="popover" #C (ionChange)="onChange(C.value)" [class]="fuente_base">
+        <ion-select  [(ngModel)]="data.card" interface="popover" #C (ionChange)="onChange(C.value)" [class]="fuente_base">
 
-            <ion-select-option value="Rojo">Rojo </ion-select-option>
+            <ion-select-option value="Rojo" >Rojo </ion-select-option>
             <ion-select-option value="Verde">Verde</ion-select-option>
             <ion-select-option value="Azul">Azul</ion-select-option>
             <ion-select-option value="Amarillo">Amarillo</ion-select-option>
@@ -78,17 +78,45 @@
     </ion-button>
 
 
-    <ion-button expand="full" shape="round" (click)="ver()" [class]="fuente_base">
-        Ver
-    </ion-button>
 
-    <ion-button expand="full" shape="round" (click)="clear()" [class]="fuente_base">
-        Eliminar
-    </ion-button>
 
-    <ion-card>
-        <ion-img src="./assets/icon/tr.jpg"></ion-img>
-    </ion-card>
+    <ion-list > 
+        
+          
+         
+          
+        <ion-card ion-item *ngFor="let imagen of allcards"  >
+          <ion-card-header color="secondary"><ion-card-title color="secondary"> {{imagen.card}}  </ion-card-title></ion-card-header>
+    
+                  
+          <ion-card-header>
+            <ion-toolbar>
+              
+              <ion-card-subtitle>{{imagen.descripcion}}</ion-card-subtitle>
+              <ion-buttons slot="primary">
+                <ion-button color="secondary" >
+                  <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+           
+            
+            <ion-card-subtitle>{{imagen.pregunta}}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            {{imagen.pista}}
+            {{imagen.respuesta}}
+         
+    
+          </ion-card-content>
+          
+          
+        </ion-card>
+       
+    
+        
+      </ion-list>
+
 
 </ion-content>
 <ion-footer>
