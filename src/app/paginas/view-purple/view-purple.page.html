@@ -27,7 +27,7 @@
 
             <ion-col class="ion-padding" size="12" size-lg="3" size-md="4" size-sm="6" size-xs="12">
 
-                <ion-card routerLink="/view-without-to-reveal" color="primary">
+                <ion-card routerLink="/view-without-to-reveal" color="primary" (click)="navegar('Azul')">
 
                     <ion-card-header>
 
@@ -40,7 +40,7 @@
 
                 </ion-card>
 
-                <ion-card routerLink="/view-target" color="warning">
+                <ion-card routerLink="/view-target" color="warning" (click)="navegar('Amarillo')">
 
                     <ion-card-header>
                         <b>
@@ -52,7 +52,7 @@
 
                 </ion-card>
 
-                <ion-card routerLink="/view-target" color="success">
+                <ion-card routerLink="/view-target" color="success" (click)="navegar('Verde')">
 
                     <ion-card-header>
                         <b>
@@ -64,11 +64,11 @@
 
                 </ion-card>
 
-                <ion-card routerLink="/view-target" color="danger">
+                <ion-card routerLink="/view-target" color="danger" (click)="navegar('Rojo')">
 
                     <ion-card-header>
                         <b>
-                            <FONT  SIZE="5" [class]="fuente_base">
+                            <FONT  SIZE="5" [class]="fuente_base" >
                                 Roja
                              </FONT>
                          </b>

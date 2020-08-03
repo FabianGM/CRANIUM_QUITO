@@ -42,10 +42,7 @@ export class ViewTargetPage implements OnInit {
   public ocultar = false;
 
   startTimer(duration: number){
-
-
     this.storage.get('tiempos').then((val) => {
-      // tslint:disable-next-line: radix
       parseInt(val);
       // console.log( val);
       this.state = 'start';
@@ -56,14 +53,15 @@ export class ViewTargetPage implements OnInit {
       this.ocultar = !this.ocultar;
       // tslint:disable-next-line: no-shadowed-variable
       this.storage.get('cardcolor').then((val) => {
-        // console.log( val);
+        console.log( val);
         this.cards = val;
 
 
       });
     }
-      // tslint:disable-next-line: no-unused-expression
-      this.updateTimeValue;
+
+
+      this.updateTimeValue();
       this.interval =  setInterval( () => {
       this.updateTimeValue();
     }, 1000);
@@ -75,14 +73,6 @@ export class ViewTargetPage implements OnInit {
     this.time.next('00:00');
     this.state = 'stop';
 
-    const alert = await this.alertCtrl.create({
-      cssClass: 'my-custom-class',
-      header: 'Perdiste',
-      subHeader: 'Más suerte la próxima :( ...',
-      buttons: ['Listo']
-    });
-
-    await alert.present();
   }
 
   detener(){
@@ -99,13 +89,13 @@ export class ViewTargetPage implements OnInit {
     seconds = String('0' + Math.floor(seconds)).slice(-2);
 
     const text = minutes + ':' + seconds;
-    // this.time.next(text);
+    this.time.next(text);
 
     --this.timer;
 
-    // console.log(this.timer);
+   // console.log(this.timer);
     if (this.timer === 1){
-     //  console.log('incorrect ');
+    //  console.log("incorrect ")
       this.navCtrl.navigateForward(
         `/juego-principal`
       );
