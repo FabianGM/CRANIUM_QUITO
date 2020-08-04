@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
-import { Camera } from '@ionic-native/camera/ngx';
+import { Camera, MediaType } from '@ionic-native/camera/ngx';
 import { Storage } from '@ionic/storage';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { File } from '@ionic-native/file/ngx';
 
 @Component({
   selector: 'app-juego-principal',
@@ -10,13 +12,14 @@ import { Storage } from '@ionic/storage';
 })
 export class JuegoPrincipalPage implements OnInit {
   arreglocartas = [];
-
+  image: string;
   // tslint:disable-next-line: variable-name
   mostrar_dado = true;
   // tslint:disable-next-line: variable-name
   mostrar_texto = true;
   src = './assets/icon/dado.png';
-
+  texto = 'GANADOR EQUIPO: ';
+  url = './assets/icon/anthony.jpeg';
 
   equipo = [];
   color = '';
@@ -34,7 +37,9 @@ export class JuegoPrincipalPage implements OnInit {
 
   constructor(private navCtrl: NavController,
               private alertCtrl: AlertController,
-              private camera: Camera, private storage: Storage) {
+              private camera: Camera, private storage: Storage,
+              private socialSharing: SocialSharing,
+              private file: File) {
                 this.fondo_base = localStorage.getItem('fondo');
                 this.encabezado_base = localStorage.getItem('encabezado');
                 this.pie_base = localStorage.getItem('pie');
@@ -102,23 +107,26 @@ export class JuegoPrincipalPage implements OnInit {
              ¿Ganador equipo ${this.equipo}?
             </ion-label>
           </ion-list-header>
-          <ion-item>
-            <ion-select placeholder="Seleccione">
-              <ion-select-option value="yes">Si</ion-select-option>
-              <ion-select-option value="no">No</ion-select-option>
-            </ion-select>
-          </ion-item>
+          <ion-img src="./assets/icon/winner.gif"></ion-img>
         </ion-list>
   `,
       buttons: [
         {
-          text: 'Continuar',
+          text: 'Cancelar',
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            this.getCamera();
+            console.log('Confirm Cancel');
           },
         },
+        {
+          text: 'Continuar',
+          handler: () => {
+
+            this.getCamera();
+          }
+        }
+
       ],
     });
 
@@ -206,11 +214,6 @@ export class JuegoPrincipalPage implements OnInit {
             if (this.etiqueta === 'Azul') {
               navegar = '/view-without-to-reveal';
             }
-
-
-
-
-
             this.navCtrl.navigateForward(
               `${navegar}`
             );
@@ -241,13 +244,47 @@ export class JuegoPrincipalPage implements OnInit {
       this.storage.set('cardcolor', arreglocolor[randomico1]);
     });
   }
-  getCamera(){
 
-  this.camera.getPicture({
+  async shareWhatsapp(){
+
+    if ( this.image === ''){
+      this.image = null;
+    }
+    this.socialSharing.shareViaWhatsApp((this.texto + this.equipo + '!!!'), this.image).then(() => {
+
+    }).catch(e => {
+      console.log('Error whatsapp');
+    });
+  }
+
+  async shareFacebook(){
+
+    if ( this.image === ''){
+      this.image = null;
+    }
+    this.socialSharing.shareViaFacebook((this.texto + this.equipo + '!!!'), this.image).then(() => {
+
+    }).catch(e => {
+      console.log('ERROR FACEBOOK');
+    });
+
+  }
+
+
+   getCamera(){
+
+    this.camera.getPicture({
     sourceType: this.camera.PictureSourceType.CAMERA,
-    destinationType: this.camera.DestinationType.FILE_URI
+    destinationType: this.camera.DestinationType.FILE_URI,
+    mediaType: this.camera.MediaType.PICTURE,
+    allowEdit: false,
+    encodingType: this.camera.EncodingType.JPEG,
+    targetHeight: 1024,
+    targetWidth: 1024,
+    correctOrientation: true,
+    saveToPhotoAlbum: true
   }).then((res) => {
-    console.log(res);
+    this.image = res;
   }).catch(e => {
     console.log(e);
   });

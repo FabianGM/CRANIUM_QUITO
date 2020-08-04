@@ -43,6 +43,7 @@ export class ViewTargetPage implements OnInit {
 
   startTimer(duration: number){
     this.storage.get('tiempos').then((val) => {
+      // tslint:disable-next-line: radix
       parseInt(val);
       // console.log( val);
       this.state = 'start';
