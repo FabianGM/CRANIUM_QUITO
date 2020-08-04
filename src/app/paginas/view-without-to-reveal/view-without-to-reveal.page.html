@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar [color]="encabezado_base">
-
+        <ion-title class="ion-text-center" [class]="fuente_base"> PIENSA EN QUITO</ion-title>
 
     </ion-toolbar>
 </ion-header>
@@ -38,16 +38,16 @@
             <ion-list>
 
 
-                <ion-item>
-                    {{cards.card}}
+                <ion-item color={{cards.color}}>
+                  Tarjeta  {{cards.card}}
                 </ion-item>
-                <ion-item>
+                <ion-item color={{cards.color}}>
                     {{cards.descripcion}}
-                </ion-item>
-                <ion-item>
+                </ion-item >
+                <ion-item color={{cards.color}}>
                     {{cards.pregunta}}
                 </ion-item>
-                <ion-item>
+                <ion-item color={{cards.color}} >
                     {{cards.pista}}
                 </ion-item>
                 
@@ -62,13 +62,13 @@
              -->
 
 
-                <ion-item>
+                <ion-item color={{cards.color}}>
                     <ion-label position='floating' [class]="fuente_base">Ingrese la respuesta</ion-label>
                     <ion-input type='text' [(ngModel)]="res" name="res" #res1 required></ion-input>
 
                 </ion-item>
 
-                <ion-item>
+                <ion-item color={{cards.color}}>
                     <ion-button expand="full" shape="round" [class]="fuente_base" (click)="comprobar(res1)">Comprobar </ion-button>
                 </ion-item>
             </ion-list>
