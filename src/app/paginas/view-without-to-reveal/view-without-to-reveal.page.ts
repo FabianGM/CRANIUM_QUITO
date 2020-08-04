@@ -24,6 +24,7 @@ export class ViewWithoutToRevealPage implements OnInit {
   pie_base: string;
   fuente_base: string;
   res: string;
+  respuesta_user: string;
 
   constructor(public alertCtrl: AlertController, private storage: Storage, public navCtrl: NavController, public toastController: ToastController) {
     this.fondo_base = localStorage.getItem('fondo');
@@ -138,7 +139,9 @@ export class ViewWithoutToRevealPage implements OnInit {
    //   console.log( val);
       this.cards = val;
     //  console.log("holo2 ", val.respuesta)
-      if (val.respuesta === r.value){
+    this.respuesta_user=r.value+'';
+    //console.log(this.respuesta_user.toLowerCase());
+      if (val.respuesta === this.respuesta_user.toLowerCase().trim()){
     //    console.log("correct ")
         if (this.timer > 0){
           this.alertCorrecto();

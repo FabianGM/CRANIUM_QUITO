@@ -73,6 +73,10 @@ export class AppComponent {
     this.fuente_base = localStorage.getItem('fuente');
   }
 
+  closeMenu() {
+    this.menu.close();
+  }
+
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();

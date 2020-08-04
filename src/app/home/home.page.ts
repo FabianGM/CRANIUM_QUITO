@@ -133,7 +133,7 @@ datos=[
               card:'Azul',
               color:'primary',
     descripcion:'Significado',
-    pregunta:' Escriba su respuesta en minúscula ¿Quito es la capital más antigua de Sudamérica? 1. Si 2. No',
+    pregunta:' Esriba si o no por favor ¿Quito es la capital más antigua de Sudamérica? 1. Si 2. No',
     pista:'',
     respuesta:'si'
       },
@@ -141,32 +141,32 @@ datos=[
       card:'Azul',
       color:'primary',
     descripcion:'Significado',
-    pregunta:' Escriba el número de opción correcta ¿Qué significa Quito la Carita de Dios? 1. Es una de las ciudades más cerca del cielo 2. Es una ciudad iluminada',
+    pregunta:'Escriba la letra que tenga la opción correcta ¿Qué significa Quito la Carita de Dios? a. Es una de las ciudades más cerca del cielo b. Es una ciudad iluminada',
     pista:'',
-    respuesta:'1'
+    respuesta:'a'
       },
       {
       card:'Azul',
       color:'primary',
     descripcion:'Significado',
-    pregunta:' Escriba el número de opción correcta ¿Cuál es el nombre completo de Quito? 1.Quito del segundo amanecer  2. San Francisco de Quito',
+    pregunta:'Escriba la letra que tenga la opción correcta ¿Cuál es el nombre completo de Quito? a.Quito del segundo amanecer  b. San Francisco de Quito',
     pista:'',
-    respuesta:'2'
+    respuesta:'b'
       },
     
      {
       card:'Azul',
       color:'primary',
     descripcion:'Significado',
-    pregunta:' Escriba el número de opción correcta ¿Cuándo se celebra la fundación de Quito? 1. En Septiembre 24  2. En Diciembre 6',
+    pregunta:'Escriba la letra que tenga la opción correcta ¿Cuándo se celebra la fundación de Quito? a. En Septiembre 24  b. En Diciembre 6',
     pista:'',
-    respuesta:'2'
+    respuesta:'b'
       },
     {
       card:'Azul',
       color:'primary',
     descripcion:'Significado',
-    pregunta:' Escriba su respuesta en minúscula ¿Que leyenda es conocida como el atrio de San Francisco?',
+    pregunta:'¿Que leyenda es conocida como el atrio de San Francisco?',
     pista:'añutnaC',
     respuesta:'cantuña'
       },
