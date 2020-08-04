@@ -41,6 +41,8 @@
 
 
         </ion-item>
+
+
         <ion-item *ngIf="azul" color="primary">
 
 
@@ -51,8 +53,8 @@
 
 
     <ion-item [color]="fondo_base">
-        <ion-label position="floating" [class]="fuente_base">Descripcion</ion-label>
-        <ion-input type="text" [(ngModel)]="data.descripcion"></ion-input>
+
+        <ion-input disabled="true" type="text" [(ngModel)]="data.descripcion" required></ion-input>
     </ion-item>
 
     <ion-item [color]="fondo_base">
@@ -77,18 +79,50 @@
         Guardar
     </ion-button>
 
+    <ion-item style="text-align:center;">
+        <ion-label>
+            <FONT SIZE="5" [class]="fuente_base">
+                Tarjetas precargadas
+            </FONT>
+        </ion-label>
 
-    <ion-button expand="full" shape="round" (click)="ver()" [class]="fuente_base">
-        Ver
-    </ion-button>
+    </ion-item>
 
-    <ion-button expand="full" shape="round" (click)="clear()" [class]="fuente_base">
-        Eliminar
-    </ion-button>
 
-    <ion-card>
-        <ion-img src="./assets/icon/tr.jpg"></ion-img>
-    </ion-card>
+
+
+    <ion-list>
+
+
+
+
+        <ion-card ion-item *ngFor="let imagen of allcards">
+            <ion-card-header color={{imagen.color}}>
+                <ion-card-title>Tarjeta {{imagen.card}} </ion-card-title>
+            </ion-card-header>
+
+
+            <ion-card-header>
+                <ion-toolbar>
+                    <ion-card-subtitle>{{imagen.descripcion}}</ion-card-subtitle>
+                </ion-toolbar>
+
+
+                <ion-card-subtitle>{{imagen.pregunta}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+                {{imagen.pista}} {{imagen.respuesta}}
+
+
+            </ion-card-content>
+
+
+        </ion-card>
+
+
+
+    </ion-list>
+
 
 </ion-content>
 <ion-footer>

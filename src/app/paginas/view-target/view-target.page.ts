@@ -112,26 +112,27 @@ export class ViewTargetPage implements OnInit {
   ngOnInit() {
   }
 
-  async presentAlert() {
-    const alert = await this.alertCtrl.create({
-      header: ``,
-      backdropDismiss: false,
-      subHeader: ``,
-      message: `<ion-img src="./assets/icon/relog_de_arena.gif"></ion-img>`,
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'secondary',
-          handler: (blah) => {
-            console.log('Cancelar');
-          },
-        },
-      ],
-    });
+  // async presentAlert() {
+  //   const alert = await this.alertCtrl.create({
+  //     header: ``,
+  //     backdropDismiss: false,
+  //     subHeader: ``,
+  //     message: `<ion-img src="./assets/icon/relog_de_arena.gif"></ion-img>`,
+  //     buttons: [
+  //       {
+  //         text: 'Cancelar',
+  //         role: 'cancel',
+  //         cssClass: 'secondary',
+  //         handler: (blah) => {
+  //           console.log('Cancelar');
+  //           this.stopTimer();
+  //         },
+  //       },
+  //     ],
+  //   });
 
-    await alert.present();
-  }
+  //   await alert.present();
+  // }
 
 
   async presentAlert1(c) {
@@ -149,7 +150,9 @@ export class ViewTargetPage implements OnInit {
 
           handler: async (blah) => {
             this.presentToastIncorrecto();
+            this.stopTimer();
             await this.storage.get('equipo').then((val) => {
+              
 
               this.equipo = val;
 
@@ -165,6 +168,7 @@ export class ViewTargetPage implements OnInit {
           handler: () => {
             console.log('Correcto');
             this.alertCorrecto();
+            this.stopTimer();
             this.navCtrl.navigateForward(
               `/juego-principal`
             );

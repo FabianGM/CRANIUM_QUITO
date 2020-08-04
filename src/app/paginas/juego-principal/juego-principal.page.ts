@@ -104,7 +104,8 @@ export class JuegoPrincipalPage implements OnInit {
       <ion-list>
           <ion-list-header>
             <ion-label>
-             ¿Ganador equipo ${this.equipo}?
+            <h2> ¿Ganador equipo ${this.equipo}?
+            </h2>
             </ion-label>
           </ion-list-header>
           <ion-img src="./assets/icon/winner.gif"></ion-img>
