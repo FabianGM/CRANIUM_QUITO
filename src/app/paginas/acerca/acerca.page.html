@@ -2,8 +2,8 @@
 
 <ion-content padding [color]="fondo_base">
     <div>
-        <h5 [class]="fuente_base" style="color:#f4f5f8"> Desarolladores:</h5>
-        <ion-item *ngFor="let cp of componentes" class="ion-no-border" [color]="fondo_base" (click)="presentAlert(cp)" [class]="fuente_base" style="color:#f4f5f8" detail>{{cp.name}}
+        <h5 [class]="fuente_base"> Desarolladores:</h5>
+        <ion-item *ngFor="let cp of componentes" class="ion-no-border" [color]="fondo_base" (click)="presentAlert(cp)" [class]="fuente_base" detail>{{cp.name}}
             <ion-avatar slot="start">
                 <img src="{{cp.src}} ">
             </ion-avatar>
