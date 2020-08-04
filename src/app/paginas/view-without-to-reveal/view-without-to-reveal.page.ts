@@ -157,6 +157,7 @@ export class ViewWithoutToRevealPage implements OnInit {
 
 
     });
+    this.stopTimer();
   }
 
 
@@ -200,6 +201,7 @@ export class ViewWithoutToRevealPage implements OnInit {
       message: 'Perdiste suerte en el próximo turno',
       duration: 3000
     });
+    
     toast.present();
   }
 
