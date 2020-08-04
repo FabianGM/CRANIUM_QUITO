@@ -7,8 +7,11 @@
         </ion-tab-button>
     </div>
     <ion-item [color]="fondo_base">
-        <ion-range (ionChange)="cambioRango($event)" min="60" max="240" pin="true" color="dark">
-            <ion-label slot="start">60</ion-label>
+        <p [class]="fuente_base" align="justify">El tiempo que elija para cambiar el temporizador se encuentra en segundos:</p>
+    </ion-item>
+    <ion-item [color]="fondo_base">
+        <ion-range (ionChange)="cambioRango($event)" min="1" max="240" pin="true" color="dark">
+            <ion-label slot="start">1</ion-label>
             <ion-label slot="end">240</ion-label>
         </ion-range>
     </ion-item>

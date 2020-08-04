@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-
+ 
   componentes: componentes[] = [
     {
     icono: 'settings-outline',
@@ -40,31 +40,20 @@ export class AppComponent {
   fuente_base: string;
 
   Temas = {
-    tema1: {
+    
       encabezado: 'encabezado',
       fuente: 'fuente2',
       fondo: 'fondo',
-      pie: 'footer'
-    },
-    tema2: {
-      encabezado: 'encabezado1',
-      fuente: 'fuente3',
-      fondo: 'fondo1',
-      pie: 'footer1'
-    },
-    tema3: {
-      encabezado: 'encabezado2',
-      fuente: 'fuente3',
-      fondo: 'fondo2',
-      pie: 'footer2'
-    },
+      pie: 'footer'  
+    
   };
 
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private menu: MenuController
+    private menu: MenuController,
+    
   ) {
     this.initializeApp();
     this.fondo_base = localStorage.getItem('fondo');
@@ -81,7 +70,35 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+    
+    this.darkTheme();
+      
+    
+      
     });
+  }
+
+  darkTheme(){
+    const prefersL = window.matchMedia('(prefers-color-scheme: light)');
+    const prefersD = window.matchMedia('(prefers-color-scheme: DARK)');
+   
+
+if(localStorage.getItem('c')===null){
+  if(prefersL.matches ||prefersD.matches ){
+    console.log(localStorage.getItem('fondo'));
+    if (localStorage.getItem('fondo')===null){
+     window.location.reload();
+    }
+    localStorage.setItem('fondo', this.Temas.fondo);
+    localStorage.setItem('encabezado', this.Temas.encabezado);
+    localStorage.setItem('pie', this.Temas.pie);
+    localStorage.setItem('fuente', this.Temas.fuente);
+ // document.body.classList.toggle('dark');
+    localStorage.setItem('c','a');
+  }
+
+}
+   
   }
   openFirst() {
     this.menu.enable(true, 'first');
@@ -107,27 +124,7 @@ export class AppComponent {
     window.location.reload();
     const valor = event.detail.value;
 
-    if (valor === 'tema1'){
-     console.log(this.encabezado_base);
-     this.encabezado_base = this.Temas.tema1.encabezado;
-     this.fuente_base = this.Temas.tema1.fuente;
-     this.fondo_base = this.Temas.tema1.fondo;
-     this.pie_base = this.Temas.tema1.pie;
-   }
-
-    if (valor === 'tema2'){
-     this.encabezado_base = this.Temas.tema2.encabezado;
-     this.fuente_base = this.Temas.tema2.fuente;
-     this.fondo_base = this.Temas.tema2.fondo;
-     this.pie_base = this.Temas.tema2.pie;
-   }
-
-    if (valor === 'tema3'){
-     this.encabezado_base = this.Temas.tema3.encabezado;
-     this.fuente_base = this.Temas.tema3.fuente;
-     this.fondo_base = this.Temas.tema3.fondo;
-     this.pie_base = this.Temas.tema3.pie;
-   }
+  
 
     this.almacenar();
 
