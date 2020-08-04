@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ModalController, ToastController } from '@ionic/angular';
+import { ModalController, ToastController, NavController } from '@ionic/angular';
 import { ModalInfoPage } from '../modal-info/modal-info.page';
 import { Storage } from '@ionic/storage';
 import { Observable } from 'rxjs';
@@ -16,7 +16,7 @@ export class AdministradorPage implements OnInit {
   fuente_base: string;
   cards: Observable<any>;
   allcards=[]
-  constructor(private modalCtrl:ModalController,private storage: Storage,public toastController: ToastController) { 
+  constructor(private modalCtrl:ModalController,private storage: Storage,public toastController: ToastController, public navCtrl: NavController) { 
     this.fondo_base = localStorage.getItem('fondo');
     this.encabezado_base = localStorage.getItem('encabezado');
     this.pie_base = localStorage.getItem('pie');
@@ -27,8 +27,17 @@ export class AdministradorPage implements OnInit {
  d=0
  
   ngOnInit() {
+  
+      this.data.descripcion='Significado'
+      this.data.color='primary'
+      this.azul = !this.azul;
+      this.verde = false;
+      this.rojo = false;
+      this.morado = false;
+      this.amarillo = false;
 
   
+
      this.storage.get('datosg.json').then((val) => {
       console.log( val);
       this.cards=val;
@@ -244,7 +253,7 @@ export class AdministradorPage implements OnInit {
         }] ;
   
   data={
-    card:'',
+    card:'Azul',
     color:'',
     descripcion:'',
     pregunta:'',
@@ -256,30 +265,36 @@ export class AdministradorPage implements OnInit {
   guardar(){
     //this.datos.push(this.cartas)
      //this.storage.set('datosg.json', this.cartas);
-       
-    this. data1={
-      card:this.data.card,
-      color:this.data.color,
-      descripcion:this.data.descripcion,
-      pregunta:this.data.pregunta,
-      
-      pista:this.data.pista,
-      respuesta:this.data.respuesta
-    }
-    
-    //console.log(this.data)
-    
-
-   
   
-       this.datos.push(this.data1);
-    
+     if(this.data.pregunta.length===0  ||  this.data.pista.length===0 ){
+      this.presentToastCampos();
+      this.navCtrl.navigateForward(
+        `/administrador`
+      ); 
+
+     }else{
+      this. data1={
+        card:this.data.card,
+        color:this.data.color,
+        descripcion:this.data.descripcion,
+        pregunta:this.data.pregunta,
+        pista:this.data.pista,
+        respuesta:this.data.respuesta
+      }
+
+        
+    //console.log(this.data)
+    this.datos.push(this.data1); 
     this.storage.set('datosg.json', this.datos);
     this.presentToastInsertCard()
     setTimeout(() => {
       window.location.reload();
     }, 500);
    //  
+     }
+
+    
+  
    
    
    
@@ -301,7 +316,9 @@ export class AdministradorPage implements OnInit {
   public azul = false;
   public morado = false;
   public amarillo = false;
+ 
   onChange(c){
+   
     if(c=='Rojo'){
       this.data.descripcion='Moldear'
       this.data.color='danger'
@@ -357,4 +374,12 @@ async presentToastInsertCard() {
   toast.present();
 }
   
+
+async presentToastCampos() {
+  const toast = await this.toastController.create({
+    message: 'Los campos pregunta y pista deben ser llenados como mínimo',
+    duration: 4000
+  });
+  toast.present();
+}
 }

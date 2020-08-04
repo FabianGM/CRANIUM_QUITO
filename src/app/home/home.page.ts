@@ -30,6 +30,7 @@ this.val = this.val + 1;
 
 if (this.val === 15){
   this.ocultar1 = !this.ocultar1;
+  
 }
 
 
@@ -39,6 +40,7 @@ console.log(this.val);
 
 admin(){
   this.ocultar1 = false;
+  this.val=0; 
 }
 
 
