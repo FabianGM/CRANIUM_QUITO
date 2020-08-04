@@ -10,7 +10,7 @@
     </div>
 
     <ion-item *ngIf="ocultar1" [color]="fondo_base">
-        <ion-button expand="full" shape="round" [routerLink]="[ '/administrador']" [class]="fuente_base"> Admin </ion-button>
+        <ion-button (click)="admin()" expand="full" shape="round" [routerLink]="[ '/administrador']" [class]="fuente_base"> Admin </ion-button>
     </ion-item>
 
 </ion-content>

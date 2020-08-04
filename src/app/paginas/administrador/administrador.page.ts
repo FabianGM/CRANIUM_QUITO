@@ -351,7 +351,7 @@ console.log(c);
 }
 async presentToastInsertCard() {
   const toast = await this.toastController.create({
-    message: 'Targeta ingresada correctamente',
+    message: 'Tarjeta ingresada correctamente',
     duration: 3000
   });
   toast.present();

@@ -23,7 +23,7 @@ export class HomePage {
   }
 
   val = 0;
-  public ocultar1 = false;
+public ocultar1 = false;
 accion1(){
 
 this.val = this.val + 1;
@@ -36,6 +36,11 @@ if (this.val === 15){
 
 console.log(this.val);
 }
+
+admin(){
+  this.ocultar1 = false;
+}
+
 
 datos=[
   {
