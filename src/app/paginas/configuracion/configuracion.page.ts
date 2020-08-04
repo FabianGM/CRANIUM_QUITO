@@ -20,15 +20,11 @@ export class ConfiguracionPage implements OnInit {
   },
   {
     icono: 'image-outline',
-    name: 'Temas',
+    name: 'Temas y Estilos',
     redirecTo: '/temas'
   }
-  ,
-  {
-    icono: 'color-palette-outline',
-    name: 'Estilos',
-    redirecTo: '/estilos'
-  }
+  
+ 
 ];
 
   constructor() { 

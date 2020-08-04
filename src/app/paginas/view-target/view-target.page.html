@@ -25,23 +25,23 @@
         </ion-item>
         <ion-item lines="none">
 
-            <ion-button *ngIf="state === 'stop'" (click)="startTimer(1)" shape="round" fill="outline" slot="start" [class]="fuente_base">Empezar</ion-button>
-            <ion-button *ngIf="state === 'start'" (click)="stopTimer()" shape="round" fill="outline" slot="start" [class]="fuente_base">Detener</ion-button>
-            <ion-item *ngIf="ocultar" >
+            <ion-button (click)="startTimer(1)" shape="round" fill="outline" slot="start" [class]="fuente_base">Empezar</ion-button>
+
+            <ion-item *ngIf="ocultar">
                 <ion-button (click)="presentAlert1(cards.respuesta)" shape="round" fill="outline" slot="end" [class]="fuente_base">Revelar </ion-button>
 
             </ion-item>
-            
+
 
         </ion-item>
 
-        <ion-item *ngIf="ocultar" >
+        <ion-item *ngIf="ocultar">
 
-            <ion-list >
+            <ion-list>
 
 
                 <ion-item color={{cards.color}}>
-                    Tarjeta   {{cards.card}}
+                    Tarjeta {{cards.card}}
                 </ion-item>
                 <ion-item color={{cards.color}}>
                     {{cards.descripcion}}
@@ -63,10 +63,10 @@
 
 
 
-            
 
 
-           </ion-item>
+
+        </ion-item>
 
         <!-- <ion-item lines="none">
             <ion-card-content [class]="fuente_base">
@@ -79,7 +79,7 @@
 
         <ion-card-content [class]="fuente_base">
 
-            
+
         </ion-card-content>
     </ion-card>
 
