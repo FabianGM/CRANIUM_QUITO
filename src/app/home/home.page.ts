@@ -38,28 +38,28 @@ datos = [
       card: 'Verde',
       color: 'success',
     descripcion: 'Dibujar',
-    pregunta: 'Dibuje al ser de la leyenda que contruyó la iglesia de San Francisco de Quito',
+    pregunta: 'Dibuje al personaje de la leyenda que contruyó la iglesia de San Francisco de Quito',
     pista: 'El arquitecto,  Las monjas, El cura, El diablo',
     respuesta: 'El diablo'
       }, {
         card: 'Verde',
         color: 'success',
       descripcion: 'Dibujar',
-      pregunta: 'Dibuje al ser de la leyenda que contruyó la iglesia de San Francisco de Quito',
+      pregunta: 'Dibuje al personaje de la leyenda que contruyó la iglesia de San Francisco de Quito',
       pista: 'El arquitecto,  Las monjas, El cura, El diablo',
       respuesta: 'El diablo'
         }, {
           card: 'Verde',
           color: 'success',
         descripcion: 'Dibujar',
-        pregunta: 'Dibuje el unico lugar en donde el huevo puede permancer parado',
-        pista: 'En la linea Ecuatorial,  En la pñaza de sanfrancisco , En la mitad del mundo',
+        pregunta: 'Dibuje el único lugar en donde el huevo puede permanecer parado',
+        pista: 'En la linea Ecuatorial,  En la plaza de San francisco , En la mitad del mundo',
         respuesta: 'En la mitad del mundo'
           }, {
             card: 'Verde',
             color: 'success',
           descripcion: 'Dibujar',
-          pregunta: 'Dibuje algo que resalte mas entro del turismo en quito ',
+          pregunta: 'Dibuje algo que resalte dentro del turismo en quito ',
           pista: 'La arquitectura,  Utilizado como un santuario , Lugar donde se predica la palabra',
           respuesta: 'Iglesia'
             }, {
@@ -87,28 +87,29 @@ datos = [
                     card: 'Rojo',
                     color: 'danger',
                   descripcion: 'Moldear',
-                  pregunta: 'Intenta hacer la Cruz del Papa con la plastilina Cranium',
+                  pregunta: 'Intenta hacer la Cruz del Papa con una plastilina',
                   pista: '',
                   respuesta: ''
                     }, {
                       card: 'Rojo',
                       color: 'danger',
                     descripcion: 'Moldear',
-                    pregunta: 'Intenta representar el Panecillo con la plastilina Cranium',
+                    pregunta: 'Intenta representar el Panecillo con una plastilina',
                     pista: '',
                     respuesta: ''
-                      }, {
+                      },
+                       {
                         card: 'Rojo',
                         color: 'danger',
                       descripcion: 'Moldear',
-                      pregunta: 'Intenta representar el estadio olímpico con la plastilina Cranium',
+                      pregunta: 'Intenta representar el estadio olímpico con una plastilina',
                       pista: '',
                       respuesta: ''
                         }, {
                           card: 'Rojo',
                           color: 'danger',
                         descripcion: 'Moldear',
-                        pregunta: 'Intenta representar los túneles de San Diego con la plastilina Cranium',
+                        pregunta: 'Intenta representar los túneles de San Diego una plastilina',
                         pista: '',
                         respuesta: ''
                           }, {
